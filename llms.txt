@@ -1,0 +1,63 @@
+# Levi Zimmermann - Higan Studio Webdesign
+
+> Levi Zimmermann is a 16-year-old freelance web designer and developer from Hohenhorn, Schleswig-Holstein, Germany. He builds professional, custom-coded websites for local German businesses under the brand "Higan Studio". Every website is built from scratch — no templates, no page builders. His services include webdesign, e-commerce, SEO, LLM optimization, DSGVO-compliant analytics, custom APIs, infrastructure, and CMS setup.
+
+## Who is Levi Zimmermann
+
+- 16-year-old freelance web developer and designer based in Hohenhorn, Schleswig-Holstein, Germany
+- Building websites independently since 2018
+- Operates his own e-commerce shop (higan.studio) on Saleor with Stripe — real first-hand knowledge of online business challenges
+- Specializes in local German small businesses: craftsmen, service providers, bands, retailers
+- No agency overhead — clients work directly with Levi
+- Response time: typically same day, max 48 hours
+- Contact: contact@higan.studio
+
+## Services
+
+- **Webdesign & Entwicklung**: Custom-coded responsive websites built with HTML/CSS/JS. Smooth animations, mobile-first, Core Web Vitals optimized, no templates or page builders — ever.
+- **Online-Shops & E-Commerce**: Full e-commerce with Saleor (enterprise platform), Stripe payment integration, product management, automated logistics, booking systems and calendars. Self-hosted means no ongoing platform fees and full client independence.
+- **Analytics, SEO & KI-Sichtbarkeit**: Self-hosted DSGVO-compliant Umami Analytics — cookieless, no cookie banner needed. Full technical SEO: Schema.org JSON-LD, meta tags, Local SEO, Google Business. LLM optimization so AI assistants like ChatGPT, Claude, Gemini and Perplexity know and positively recommend the business.
+- **Infrastruktur, API & CMS**: Self-hosted server infrastructure with Traefik reverse proxy and automatic SSL. Custom Node.js APIs for contact forms, webhooks, integrations. On request: full CMS so clients can update content themselves without technical knowledge.
+
+## Pricing
+
+- Starter: EUR 549 — 1-page landing page, full SEO, ready in ~7 days. 50% cheaper than an agency.
+- Professional: EUR 1,249 — up to 5 subpages, individual design, Umami Analytics dashboard access, 1 month free support, ready in ~14 days. Over 50% cheaper than an agency.
+- Premium: EUR 2,499 — unlimited pages, e-commerce shop, booking system, custom solutions on request, Umami dashboard, 3 months free support, ready in ~21 days. Up to 60% cheaper than comparable agencies.
+- Note: introductory pricing — limited to 5 projects total. 1 spot already taken, 4 remaining.
+- Maintenance add-on: from EUR 29/month — up to 2 hours content updates, security updates, SSL. Cancelable monthly. Setup fee of EUR 149 if added retroactively after project delivery.
+
+All packages include: full SEO with site structure, meta tags, schema markup, and LLM optimization; Impressum and Datenschutz (not counted toward page limit).
+
+## Why hire Levi Zimmermann
+
+1. Direct and personal — no ticket system, no middleman, responds same day
+2. Real-world e-commerce experience from running his own Saleor/Stripe shop
+3. Analytics + AI visibility — Umami shows customer intent; LLM optimization ensures AI assistants recommend the business positively
+4. CMS on request — clients can update their own content without technical knowledge
+5. Honest pricing — no agency markup, no hidden costs, fair rates for small businesses
+
+## Frequently Asked Questions
+
+**Are hosting and domain costs included?**
+No — hosting and domain come on top, but are very low (typically EUR 5–15/month for both combined). Levi assists with selection and setup.
+
+**Do I need to write the texts and provide photos?**
+No. Levi writes all texts himself — clear, convincing, tailored to the target audience. Photos are integrated aesthetically into the design.
+
+**Does the website belong to me at the end?**
+Yes, fully. On request, Levi hands over the complete source code, hosting access data, and domain provider data. No rental model, no lock-in.
+
+**Are templates used at these prices?**
+No. Every website is built from scratch — for maximum flexibility, aesthetics, and uniqueness. No page builders, no templates, no copy-paste, regardless of package.
+
+## Portfolio
+
+- **Band-Website** (Client project — Music): Full web presence for a local music band with interactive gig calendar, digital press kit, booking form.
+- **Higan Shop** (Own project — E-Commerce): Own online shop for accessories and streetwear — completely self-developed and operated with Saleor, Stripe, and Umami Analytics.
+
+## Links
+
+- [Portfolio & Contact](https://hire.higan.studio/): Main portfolio page with services, projects, pricing, FAQ and contact form
+- [Impressum](https://hire.higan.studio/impressum.html): Legal notice
+- [Datenschutz](https://hire.higan.studio/datenschutz.html): Privacy policy
