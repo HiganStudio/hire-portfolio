@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /datenschutz.html
-Disallow: /impressum.html
+Disallow: /datenschutz
+Disallow: /impressum
 
 Sitemap: https://hire.higan.studio/sitemap.xml
