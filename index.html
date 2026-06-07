@@ -372,6 +372,24 @@
     .pcta.outline { background: transparent; color: var(--muted); border: 1px solid var(--border); }
     .pcta.outline:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
 
+    .pricing-trust {
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 48px;
+      line-height: 1.6;
+    }
+    .pricing-trust a {
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: color 0.2s;
+    }
+    .pricing-trust a:hover {
+      color: var(--accent-lt);
+    }
+
     /* FOMO BAR */
     .fomo-bar { display: flex; align-items: center; gap: 12px; background: rgba(69,10,79,0.18); border: 1px solid rgba(123,34,144,0.3); border-radius: var(--r); padding: 14px 20px; font-size: 14px; color: var(--text); margin-bottom: 40px; }
     .fomo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-lt); flex-shrink: 0; animation: fomo-pulse 2s infinite; }
@@ -826,7 +844,7 @@
 <section id="preise" aria-label="Preise">
   <div class="sec-label reveal">Pakete</div>
   <h2 class="sec-title reveal">Klare<br><em>Pakete</em></h2>
-  <p class="pricing-note reveal">Die genannten Preise sind Richtwerte und Startpunkte - in jeder Website steckt oft mehr als auf den ersten Blick erkennbar. Den genauen Preis für Ihr Projekt klären wir persönlich im Gespräch, kostenlos und unverbindlich. Alle Pakete inkl. Konzeption, Design und Entwicklung. Hosting wird bei einem professionellen Anbieter eingerichtet. Impressum und Datenschutz zählen nicht zur Seitenzahl.</p>
+  <p class="pricing-note reveal">Die genannten Preise sind Richtwerte und Startpunkte - in jeder Website steckt oft mehr als auf den ersten Blick erkennbar. Den genauen Preis für Ihr Projekt klären wir persönlich im Gespräch, kostenlos und unverbindlich. Alle Pakete inkl. Konzeption, Design und Entwicklung. <strong>Wir arbeiten nach dem fairen 50/50-Modell (Anzahlung/Schlusszahlung nach Abnahme).</strong> Hosting wird bei einem professionellen Anbieter eingerichtet. Impressum und Datenschutz zählen nicht zur Seitenzahl.</p>
 
   <div class="fomo-bar reveal">
     <div class="fomo-dot"></div>
@@ -906,6 +924,10 @@
       <a href="#kontakt" class="pcta outline" onclick="selectPaket('premium')">Anfragen</a>
     </div>
 
+  </div>
+
+  <div class="pricing-trust reveal">
+    Transparenz von Anfang an: Schau dir unsere Musterdokumente für den <a href="/projektvertrag">Projektvertrag</a> und das <a href="/wartung">SLA (Wartung)</a> vorab an.
   </div>
 
   <p style="font-size:12px;color:var(--muted);margin-bottom:32px;margin-top:16px;">* Lieferzeiten sind Richtwerte und können je nach Auftragslage variieren.</p>
@@ -1032,9 +1054,17 @@
   </div>
   <div class="footer-bottom">
     <div class="footer-copy">2026 Higan Studio - Levi Zimmermann - Hohenhorn, SH - <a href="tel:+4915233541953" style="color:inherit;">+49 152 335 41953</a></div>
-    <div class="footer-legal">
-      <a href="impressum">Impressum</a>
-      <a href="datenschutz">Datenschutz</a>
+    <div style="display:flex; flex-direction:column; align-items:flex-end; gap:8px;">
+      <div class="footer-legal">
+        <span style="opacity:0.5; font-size:11px; letter-spacing:0.05em; text-transform:uppercase;">Transparenz & Verträge (Muster):</span>
+        <a href="projektvertrag">Projektvertrag</a>
+        <a href="wartung">SLA / Wartung</a>
+      </div>
+      <div class="footer-legal">
+        <a href="tos">Nutzungsbedingungen</a>
+        <a href="impressum">Impressum</a>
+        <a href="datenschutz">Datenschutz</a>
+      </div>
     </div>
   </div>
   <p style="font-size:11px;color:var(--muted);margin-top:16px;opacity:0.7;">* Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
