@@ -8,6 +8,7 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -236,6 +237,88 @@
     </sc-if>
 
     <!-- ================= CONTACT ================= -->
+    <!-- ================= GUIDE ================= -->
+    <sc-if value="{{ isGuide }}" hint-placeholder-val="{{ true }}">
+    <div data-screen-label="Guide">
+      <section style="height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px">
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,6.4vw,92px);line-height:1.06;margin:0;max-width:16ch;animation:hgUp 1s ease both .1s">
+          {{ heroPre }}<br>
+          <span style="font-style:italic;color:#c3a6e0">{{ typedWord }}</span><span class="hg-caret" style="height:.86em"></span>
+        </h1>
+      </section>
+      
+      <section style="max-width:800px;margin:0 auto;padding:40px 32px 120px;display:flex;flex-direction:column;align-items:stretch" class="contact-layout">
+        
+        <div style="margin-bottom:80px;text-align:center">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.5;margin-bottom:20px;display:inline-block;padding:8px 16px;border:1px solid rgba(255,255,255,0.1);border-radius:20px">Free Guide</span>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5.5vw,72px);font-weight:500;line-height:1.1;margin:0 0 20px">The Open Source Advantage</h2>
+          <p style="font-size:22px;color:#c3a6e0;opacity:1;margin:0;font-weight:300">Why Paying for SaaS is Holding You Back</p>
+        </div>
+
+        <div style="font-size:17px;line-height:1.8;opacity:0.8;font-weight:300;margin-bottom:60px">
+          <p style="margin-bottom:24px">As a modern founder, you want to ensure you're building a digital product that scales without arbitrary limits or bloated enterprise licensing fees. Reclaiming your digital sovereignty is the ultimate competitive advantage.</p>
+          <p style="margin-bottom:0">In this free guide, you'll learn how to leverage powerful open-source architectures to make thousands of global developers work for you, effectively eliminating recurring SaaS costs while increasing stability.</p>
+        </div>
+
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,40px);font-weight:500;margin:0 0 40px;text-align:center">What you are about to learn</h3>
+        <ul style="list-style:none;padding:0;margin:0 0 80px;display:flex;flex-direction:column;gap:30px">
+          <li style="display:flex;gap:24px;align-items:flex-start;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);padding:32px;border-radius:16px">
+            <span style="font-family:'Space Mono',monospace;color:#c3a6e0;font-size:16px;margin-top:2px;opacity:0.8">01</span>
+            <div><strong style="font-size:18px;font-weight:500">The true cost of Vendor Lock-in</strong><br><span style="opacity:0.7;font-size:15px;line-height:1.6;font-family:'Inter',sans-serif;color:inherit;display:block;margin-top:8px;font-weight:300">How SaaS subscriptions silently drain your resources and limit your growth potential over a 5-year span.</span></div>
+          </li>
+          <li style="display:flex;gap:24px;align-items:flex-start;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);padding:32px;border-radius:16px">
+            <span style="font-family:'Space Mono',monospace;color:#c3a6e0;font-size:16px;margin-top:2px;opacity:0.8">02</span>
+            <div><strong style="font-size:18px;font-weight:500">Architecting for Sovereignty</strong><br><span style="opacity:0.7;font-size:15px;line-height:1.6;font-family:'Inter',sans-serif;color:inherit;display:block;margin-top:8px;font-weight:300">Building a tech stack that belongs entirely to you, allowing unrestricted data ownership and portability.</span></div>
+          </li>
+          <li style="display:flex;gap:24px;align-items:flex-start;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);padding:32px;border-radius:16px">
+            <span style="font-family:'Space Mono',monospace;color:#c3a6e0;font-size:16px;margin-top:2px;opacity:0.8">03</span>
+            <div><strong style="font-size:18px;font-weight:500">Open Source at Enterprise Scale</strong><br><span style="opacity:0.7;font-size:15px;line-height:1.6;font-family:'Inter',sans-serif;color:inherit;display:block;margin-top:8px;font-weight:300">Harnessing the global developer community to keep your infrastructure secure, modern, and auto-scaling.</span></div>
+          </li>
+          <li style="display:flex;gap:24px;align-items:flex-start;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);padding:32px;border-radius:16px">
+            <span style="font-family:'Space Mono',monospace;color:#c3a6e0;font-size:16px;margin-top:2px;opacity:0.8">04</span>
+            <div><strong style="font-size:18px;font-weight:500">Transition & Execution</strong><br><span style="opacity:0.7;font-size:15px;line-height:1.6;font-family:'Inter',sans-serif;color:inherit;display:block;margin-top:8px;font-weight:300">A step-by-step framework for decoupling your current setup and moving towards total independence.</span></div>
+          </li>
+        </ul>
+
+        <div style="margin-bottom:100px">
+          <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(24px,4vw,34px);line-height:1.4;color:#fff;text-align:center;margin:0 0 40px">
+            "If you want to rethink your architecture, escape restrictive licenses, and execute a truly scalable open-source foundation—we are here to support you. You can count on us."
+          </p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px">
+            <div style="width:56px;height:56px;border-radius:50%;background:#222;overflow:hidden">
+              <img src="https://ui-avatars.com/api/?name=Levi&background=0D0D0D&color=fff" style="width:100%;height:100%;object-fit:cover" alt="Levi">
+            </div>
+            <div style="text-align:left">
+              <div style="font-family:'Space Mono',monospace;font-size:13px;opacity:0.9;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px">Levi Zimmermann</div>
+              <div style="font-family:'Inter',sans-serif;font-size:13px;opacity:0.5">Founder, Higan Studio</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:clamp(32px,5vw,56px);margin-top:20px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,38px);margin:0 0 16px;font-weight:500">Get your Free Guide today!</h3>
+          <p style="font-size:16px;margin-bottom:40px;opacity:0.7;font-weight:300;max-width:80%;margin-left:auto;margin-right:auto">Fill out the form below to get the digital Free Guide sent to your inbox within 24 hours.</p>
+          <div style="display:flex;flex-direction:column;gap:24px;text-align:left;max-width:500px;margin:0 auto">
+            <div>
+              <label style="display:block;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">First name*</label>
+              <input type="text" placeholder="Levi" style="width:100%;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:16px 20px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">Company name</label>
+              <input type="text" placeholder="Higan Studio" style="width:100%;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:16px 20px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+            </div>
+            <div>
+              <label style="display:block;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:10px">Email address*</label>
+              <input type="text" placeholder="contact&#64;higan.studio" style="width:100%;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.15);color:#fff;padding:16px 20px;border-radius:12px;font-family:'Inter',sans-serif;font-size:15px;outline:none;transition:border-color 0.2s" onfocus="this.style.borderColor='rgba(255,255,255,0.4)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
+            </div>
+            <button class="hg-navlink" style="display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;padding:18px 32px;border-radius:12px;font-family:'Inter',sans-serif;font-weight:500;font-size:15px;border:none;cursor:pointer;width:100%;margin-top:16px;transition:transform 0.2s" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'" onclick="alert('Thank you! Your guide will be sent shortly.')">Request now for free →</button>
+          </div>
+          <div style="font-size:12px;opacity:0.4;margin-top:32px;line-height:1.6;max-width:500px;margin-left:auto;margin-right:auto">Higan Studio needs the contact information you provide to us to contact you about our products and services. You can unsubscribe from these communications at any time.</div>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
     <sc-if value="{{ isContact }}" hint-placeholder-val="{{ true }}">
     <div data-screen-label="Contact">
       <section style="height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px">
@@ -267,26 +350,26 @@
       <div>
         <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">{{ t.getInTouch }}</p>
         <span class="hg-navlink" style="opacity:.8;font-weight:400;font-size:15px;cursor:pointer;display:block;margin-bottom:10px" onClick="{{ navContact }}">{{ t.contact }} →</span>
-        <a href="mailto:contact@higan.studio" class="hg-navlink" style="opacity:.6;font-weight:300;font-size:14px">contact@higan.studio</a>
+        <a href="mailto:contact&#64;higan.studio" class="hg-navlink" style="opacity:.6;font-weight:300;font-size:14px">contact&#64;higan.studio</a>
       </div>
       <div>
         <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">{{ t.guides }}</p>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <a href="guide.html" class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;text-decoration:none;color:inherit">{{ t.guide1 }}</a>
-          <a href="guide.html" class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;text-decoration:none;color:inherit">{{ t.guide2 }}</a>
-          <a href="guide.html" class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;text-decoration:none;color:inherit">{{ t.guide3 }}</a>
+          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide1 }}</span>
+          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide2 }}</span>
+          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide3 }}</span>
         </div>
       </div>
     </div>
     <div style="max-width:1240px;margin:0 auto;padding:20px 40px 34px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.08);font-family:'Space Mono',monospace;font-size:12px;opacity:.45">
       <div style="display:flex;gap:24px;flex-wrap:wrap">
-        <a href="projektvertrag" class="hg-navlink" style="text-decoration:none">Projektvertrag</a>
-        <a href="wartung" class="hg-navlink" style="text-decoration:none">SLA / Wartung</a>
-        <a href="tos" class="hg-navlink" style="text-decoration:none">Nutzungsbedingungen</a>
+        <a href="/projektvertrag" class="hg-navlink" style="text-decoration:none">{{ t.projektvertrag }}</a>
+        <a href="/wartung" class="hg-navlink" style="text-decoration:none">{{ t.wartung }}</a>
+        <a href="/tos" class="hg-navlink" style="text-decoration:none">{{ t.tos }}</a>
       </div>
       <div style="display:flex;gap:24px">
-        <a href="impressum" class="hg-navlink" style="text-decoration:none">Impressum</a>
-        <a href="datenschutz" class="hg-navlink" style="text-decoration:none">Datenschutz</a>
+        <a href="/impressum" class="hg-navlink" style="text-decoration:none">{{ t.impressum }}</a>
+        <a href="/datenschutz" class="hg-navlink" style="text-decoration:none">{{ t.datenschutz }}</a>
       </div>
     </div>
   </footer>
@@ -299,6 +382,7 @@ class Component extends DCLogic {
 
   T = {
     de:{ studio:'Digitalstudio · Wien', projects:'Projekte', services:'Dienstleistungen', about:'Über uns', blog:'Blog', contact:'Kontakt',
+      impressum:'Impressum', datenschutz:'Datenschutz', tos:'AGB', projektvertrag:'Projektvertrag', wartung:'SLA / Wartung',
       heroSub:'Wir bauen digitale Produkte, die durch Ästhetik führen und durch Substanz überzeugen.', scroll:'( scroll )',
       ready:'Ready to connect?', readySub:'In einem 30-minütigen Discovery Call finden wir heraus, ob wir zueinander passen.', discovery:'Discovery Call',
       selectDate:'Datum & Uhrzeit wählen', timezone:'Mitteleuropäische Zeit', videoInfo:'Web-Konferenz-Details nach Bestätigung',
@@ -320,6 +404,7 @@ class Component extends DCLogic {
       wf:[{num:'01',title:'Discovery',desc:'Wir verstehen dein Produkt, deine Nutzer und deine Ziele.'},{num:'02',title:'Umsetzung',desc:'Design und Engineering in engen, sichtbaren Iterationen.'},{num:'03',title:'Skalierung',desc:'Wir wachsen mit — Wartung, Automation und neue Module.'}],
       posts:[{tag:'ESSAY',title:'Warum „Enterprise"-Software meistens ein Fehler ist',date:'JUN 2026'},{tag:'GUIDE',title:'Der richtige Tech-Stack für 2026',date:'MAI 2026'},{tag:'NOTES',title:'Motion Design als Conversion-Werkzeug',date:'APR 2026'}] },
     en:{ studio:'Digital Studio · Vienna', projects:'Projects', services:'Services', about:'About Us', blog:'Blog', contact:'Contact',
+      impressum:'Imprint', datenschutz:'Privacy Policy', tos:'Terms of Service', projektvertrag:'Project Contract', wartung:'SLA / Maintenance',
       heroSub:'We build digital products that lead with aesthetics and win on substance.', scroll:'( scroll )',
       ready:'Ready to connect?', readySub:'In a 30-minute discovery call we find out if we are a fit.', discovery:'Discovery Call',
       selectDate:'Select a Date & Time', timezone:'Central European Time', videoInfo:'Web conferencing details upon confirmation',
@@ -347,7 +432,8 @@ class Component extends DCLogic {
     services:{ prefix:{de:'Wir bauen',en:'We build'}, words:{de:['strukturiert','messbar','automatisiert','skalierbar','präzise'],en:['structured','measurable','automated','scalable','precise']} },
     about:{ prefix:{de:'Wir denken',en:'We think'}, words:{de:['menschlich','neugierig','ehrlich','konsequent','langfristig'],en:['human','curious','honest','consistent','long-term']} },
     projects:{ prefix:{de:'Wir liefern',en:'We deliver'}, words:{de:['poliert','mutig','präzise','wirkungsvoll','termingerecht'],en:['polished','bold','precise','impactful','on-time']} },
-    contact:{ prefix:{de:'Lass uns',en:"Let's be"}, words:{de:['verbunden','sichtbar','erreichbar','bereit'],en:['connected','visible','reachable','ready']} }
+    contact:{ prefix:{de:'Lass uns',en:"Let's be"}, words:{de:['verbunden','sichtbar','erreichbar','bereit'],en:['connected','visible','reachable','ready']} },
+    guide:{ prefix:{de:'Wir teilen',en:'We share'}, words:{de:['Wissen','Strategien','Taktiken','Architektur','Code'],en:['knowledge','strategies','tactics','architecture','code']} }
   };
 
   componentDidMount(){
@@ -503,17 +589,72 @@ class Component extends DCLogic {
         stroke='rgba(210,190,215,0.45)'; fillDim='rgba(255,255,255,0.85)';
       }
       if(kind==='stem'){
-        // spider-lily stamen: a thin curved stem with a rounded tip
-        ctx.strokeStyle=fillDim; ctx.lineWidth=Math.max(0.7,s*0.05); ctx.lineCap='round';
+        // spider-lily stamen: a long sweeping filament, gently wavy and organic
+        const {len, bend, waveAmp} = shp;
+        const baseL = s * 0.95 * len; // slightly shorter overall length
+        
+        const p0 = [0, baseL];
+        const p1 = [curl * s * 0.25 * bend, s * 0.2];
+        const p2 = [curl * s * 0.6 * bend, -s * 0.5 * len];
+        const p3 = [curl * s * 0.4 * bend, -s * 1.15 * len];
+        
+        const bez=(p0,p1,p2,p3,tt)=>{ const m=1-tt,a=m*m*m,b=3*m*m*tt,c=3*m*tt*tt,d=tt*tt*tt;
+          return [a*p0[0]+b*p1[0]+c*p2[0]+d*p3[0], a*p0[1]+b*p1[1]+c*p2[1]+d*p3[1]]; };
+          
+        const Ns = 20; 
+        const spinePts = [];
+        for(let i=0; i<=Ns; i++) {
+          const tt = i / Ns;
+          const [bx, by] = bez(p0, p1, p2, p3, tt);
+          
+          let nx = 1, ny = 0;
+          if (tt > 0.01 && tt < 0.99) {
+             const prev = bez(p0,p1,p2,p3,tt - 0.01);
+             const dx = bx - prev[0], dy = by - prev[1];
+             const dl = Math.hypot(dx, dy) || 1;
+             nx = -(dy/dl); ny = dx/dl;
+          }
+          // gentle organic waviness - much reduced (only 1 or 2 bends, tiny amplitude)
+          const env = Math.sin(tt * Math.PI); 
+          const ripple = Math.sin(tt * Math.PI * 2.5) * s * 0.015 * waveAmp * env;
+          spinePts.push([bx + nx * ripple, by + ny * ripple]);
+        }
+        
+        // Draw the main filament (stamen)
+        ctx.strokeStyle = fillDim;
+        ctx.lineWidth = Math.max(0.5, s * 0.03); // made a bit thinner overall
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
         ctx.beginPath();
-        ctx.moveTo(0,s*1.05);
-        ctx.quadraticCurveTo(curl*s*0.32,s*0.1,curl*s*0.2,-s*0.95);
+        ctx.moveTo(spinePts[0][0], spinePts[0][1]);
+        for(let i=1; i<=Ns; i++) ctx.lineTo(spinePts[i][0], spinePts[i][1]);
         ctx.stroke();
-        ctx.fillStyle=g;
+        
+        // Add subtle highlight line for realism
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = Math.max(0.2, s * 0.01);
         ctx.beginPath();
-        ctx.ellipse(curl*s*0.2,-s*1.02,s*0.16,s*0.19,0,0,Math.PI*2);
+        ctx.moveTo(spinePts[0][0], spinePts[0][1]);
+        for(let i=1; i<=Ns; i++) ctx.lineTo(spinePts[i][0], spinePts[i][1]);
+        ctx.stroke();
+
+        // The anther (dot on top) - angled, organic, pill-like
+        const lp = spinePts[Ns], pp = spinePts[Ns-1];
+        const angle = Math.atan2(lp[1] - pp[1], lp[0] - pp[0]) + Math.PI/2;
+        
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.save();
+        ctx.translate(lp[0], lp[1]);
+        ctx.rotate(angle);
+        // anther shape: much smaller dot
+        ctx.ellipse(0, -s*0.03, s*0.05, s*0.09, 0, 0, Math.PI*2);
         ctx.fill();
-        ctx.strokeStyle=stroke; ctx.lineWidth=0.5; ctx.stroke();
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        ctx.restore();
+        
         return;
       }
       // spider-lily petal: clean slender curved blade built from a single spine + tapering
@@ -773,7 +914,7 @@ class Component extends DCLogic {
       +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(6px,1.2vh,12px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span style="width:15px;height:15px;border:1.4px solid currentColor;border-radius:50%;flex-shrink:0"></span>30 min</div>'
       +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(10px,2vh,22px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span style="width:16px;height:11px;border:1.4px solid currentColor;border-radius:3px;flex-shrink:0"></span>'+t.videoInfo+'</div>'
       +'<p style="font-size:clamp(11.5px,1.3vh,13.5px);line-height:1.6;opacity:.6;margin:0 0 clamp(8px,1.6vh,18px)">'+t.bookingIntro+'</p>'
-      +'<a href="mailto:contact@higan.studio" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(15px,2vh,20px);border-bottom:1px solid #7c5aa6;padding-bottom:2px;width:fit-content">contact@higan.studio</a></div>'
+      +'<a href="mailto:contact&#64;higan.studio" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(15px,2vh,20px);border-bottom:1px solid #7c5aa6;padding-bottom:2px;width:fit-content">contact&#64;higan.studio</a></div>'
       +'<div style="padding:clamp(18px,3vh,36px)">'
       +'<p style="font-family:\'Cormorant Garamond\',serif;font-weight:600;font-size:clamp(16px,2vh,20px);margin:0 0 clamp(10px,1.8vh,20px)">'+t.selectDate+'</p>'
       +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(6px,1.2vh,14px)">'
@@ -825,8 +966,9 @@ class Component extends DCLogic {
       toggleLang:()=>this.setState(s=>({lang:s.lang==='de'?'en':'de',typed:'',wordIdx:0})),
       heroPre:set.prefix[this.state.lang], typedWord:this.state.typed,
       goHome:e=>{e&&e.preventDefault&&e.preventDefault();this.setState({route:'home'});requestAnimationFrame(()=>window.scrollTo(0,0));},
-      navProjects:setRoute('home'), navServices:setRoute('services'), navAbout:setRoute('about'), navContact:setRoute('contact'),
-      isHome:this.state.route==='home', isServices:this.state.route==='services', isAbout:this.state.route==='about', isContact:this.state.route==='contact',
+      navProjects:setRoute('home'), navServices:setRoute('services'), navAbout:setRoute('about'), navContact:setRoute('contact'), navGuide:setRoute('guide'),
+      isHome:this.state.route==='home', isServices:this.state.route==='services', isAbout:this.state.route==='about', isContact:this.state.route==='contact', isGuide:this.state.route==='guide',
+      isDe:this.state.lang==='de', isEn:this.state.lang==='en',
       offers:off, workflow:wf
     };
   }

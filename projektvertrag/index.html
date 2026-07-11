@@ -109,7 +109,7 @@
   </nav>
 
   <main class="legal-content">
-  <sc-if value="{{ isDe }}">
+<sc-if value="{{ isDe }}">
 <div class="disclaimer-box">
     <p class="disclaimer-title">PRE-LAUNCH STAGE / COMING SOON</p>
     <p class="disclaimer-text">Higan Studio befindet sich in der Gründungs- und Entwicklungsphase. Aktuell sind keine Verkäufe oder Vertragsabschlüsse möglich. Diese Bedingungen dienen als Vorschau für unseren baldigen offiziellen Start.</p>
@@ -232,13 +232,13 @@
     </div>
     <div style="max-width:1240px;margin:0 auto;padding:20px 40px 34px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.08);font-family:'Space Mono',monospace;font-size:12px;opacity:.45">
       <div style="display:flex;gap:24px;flex-wrap:wrap">
-        <a href="/projektvertrag" class="hg-navlink" style="text-decoration:none">Projektvertrag</a>
-        <a href="/wartung" class="hg-navlink" style="text-decoration:none">SLA / Wartung</a>
-        <a href="/tos" class="hg-navlink" style="text-decoration:none">Nutzungsbedingungen</a>
+        <a href="/projektvertrag" class="hg-navlink" style="text-decoration:none">{{ t.projektvertrag }}</a>
+        <a href="/wartung" class="hg-navlink" style="text-decoration:none">{{ t.wartung }}</a>
+        <a href="/tos" class="hg-navlink" style="text-decoration:none">{{ t.tos }}</a>
       </div>
       <div style="display:flex;gap:24px">
-        <a href="/impressum" class="hg-navlink" style="text-decoration:none">Impressum</a>
-        <a href="/datenschutz" class="hg-navlink" style="text-decoration:none">Datenschutz</a>
+        <a href="/impressum" class="hg-navlink" style="text-decoration:none">{{ t.impressum }}</a>
+        <a href="/datenschutz" class="hg-navlink" style="text-decoration:none">{{ t.datenschutz }}</a>
       </div>
     </div>
   </footer>
@@ -251,6 +251,7 @@ class Component extends DCLogic {
 
   T = {
     de:{ studio:'Digitalstudio · Wien', projects:'Projekte', services:'Dienstleistungen', about:'Über uns', blog:'Blog', contact:'Kontakt',
+      impressum:'Impressum', datenschutz:'Datenschutz', tos:'AGB', projektvertrag:'Projektvertrag', wartung:'SLA / Wartung',
       heroSub:'Wir bauen digitale Produkte, die durch Ästhetik führen und durch Substanz überzeugen.', scroll:'( scroll )',
       ready:'Ready to connect?', readySub:'In einem 30-minütigen Discovery Call finden wir heraus, ob wir zueinander passen.', discovery:'Discovery Call',
       selectDate:'Datum & Uhrzeit wählen', timezone:'Mitteleuropäische Zeit', videoInfo:'Web-Konferenz-Details nach Bestätigung',
@@ -272,6 +273,7 @@ class Component extends DCLogic {
       wf:[{num:'01',title:'Discovery',desc:'Wir verstehen dein Produkt, deine Nutzer und deine Ziele.'},{num:'02',title:'Umsetzung',desc:'Design und Engineering in engen, sichtbaren Iterationen.'},{num:'03',title:'Skalierung',desc:'Wir wachsen mit — Wartung, Automation und neue Module.'}],
       posts:[{tag:'ESSAY',title:'Warum „Enterprise"-Software meistens ein Fehler ist',date:'JUN 2026'},{tag:'GUIDE',title:'Der richtige Tech-Stack für 2026',date:'MAI 2026'},{tag:'NOTES',title:'Motion Design als Conversion-Werkzeug',date:'APR 2026'}] },
     en:{ studio:'Digital Studio · Vienna', projects:'Projects', services:'Services', about:'About Us', blog:'Blog', contact:'Contact',
+      impressum:'Imprint', datenschutz:'Privacy Policy', tos:'Terms of Service', projektvertrag:'Project Contract', wartung:'SLA / Maintenance',
       heroSub:'We build digital products that lead with aesthetics and win on substance.', scroll:'( scroll )',
       ready:'Ready to connect?', readySub:'In a 30-minute discovery call we find out if we are a fit.', discovery:'Discovery Call',
       selectDate:'Select a Date & Time', timezone:'Central European Time', videoInfo:'Web conferencing details upon confirmation',
@@ -835,6 +837,7 @@ class Component extends DCLogic {
       goHome:e=>{e&&e.preventDefault&&e.preventDefault();this.setState({route:'home'});requestAnimationFrame(()=>window.scrollTo(0,0));},
       navProjects:setRoute('home'), navServices:setRoute('services'), navAbout:setRoute('about'), navContact:setRoute('contact'), navGuide:setRoute('guide'),
       isHome:this.state.route==='home', isServices:this.state.route==='services', isAbout:this.state.route==='about', isContact:this.state.route==='contact', isGuide:this.state.route==='guide',
+      isDe:this.state.lang==='de', isEn:this.state.lang==='en',
       offers:off, workflow:wf
     };
   }
