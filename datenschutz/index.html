@@ -109,6 +109,7 @@
   </nav>
 
   <main class="legal-content">
+  <sc-if value="{{ isDe }}">
 <div class="page-label">Rechtliches</div>
   <h1>Datenschutz-erklärung</h1>
 
@@ -203,6 +204,57 @@
   <p>
     Diese Datenschutzerklärung ist aktuell gültig (Stand: Mai 2026). Änderungen des Angebots können eine Anpassung erfordern.
   </p>
+  </sc-if>
+
+  <sc-if value="{{ isEn }}">
+<div class="page-label">Legal</div>
+  <h1>Privacy Policy</h1>
+  
+  <div class="disclaimer-box">
+    <p class="disclaimer-title">Note on Legal Documents</p>
+    <p class="disclaimer-text">This is an English translation of the German Privacy Policy for informational purposes only. The legally binding document is the German version.</p>
+  </div>
+
+  <h2>1. Privacy at a Glance</h2>
+  <h3>General Notes</h3>
+  <p>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data with which you could be personally identified. Detailed information on the subject of data protection can be found in our privacy policy listed below this text.</p>
+
+  <h3>Data Collection on this Website</h3>
+  <h4>Who is responsible for data collection on this website?</h4>
+  <p>Data processing on this website is carried out by the website operator. You can find their contact details in the section "Notice concerning the party responsible for this website" in this privacy policy.</p>
+  <h4>How do we collect your data?</h4>
+  <p>Your data is collected on the one hand when you provide it to us. This could, for example, be data you enter into a contact form.</p>
+  <p>Other data is collected automatically or after your consent when visiting the website by our IT systems. This is primarily technical data (e.g., Internet browser, operating system, or time of the page request). The collection of this data takes place automatically as soon as you enter this website.</p>
+  <h4>What do we use your data for?</h4>
+  <p>Part of the data is collected to ensure the error-free provision of the website. Other data may be used to analyze your user behavior.</p>
+
+  <h2>2. Hosting</h2>
+  <p>We host the content of our website with the following provider:</p>
+  <h3>External Hosting</h3>
+  <p>This website is hosted externally. The personal data recorded on this website is stored on the servers of the host(s). This may primarily involve IP addresses, contact requests, meta and communication data, contract data, contact details, names, website access, and other data generated via a website.</p>
+  <p>External hosting takes place for the purpose of fulfilling the contract with our potential and existing customers (Art. 6 (1) lit. b GDPR) and in the interest of a secure, fast, and efficient provision of our online offer by a professional provider (Art. 6 (1) lit. f GDPR). If corresponding consent has been requested, processing is carried out exclusively on the basis of Art. 6 (1) lit. a GDPR and § 25 (1) TTDSG, insofar as the consent includes the storage of cookies or access to information in the user's end device (e.g., device fingerprinting) within the meaning of the TTDSG. Consent can be revoked at any time.</p>
+  <p>Our host(s) will only process your data to the extent necessary to fulfill their performance obligations and follow our instructions with respect to such data.</p>
+  <p>We use the following host(s): <strong>Vercel</strong></p>
+
+  <h2>3. General Notes and Mandatory Information</h2>
+  <h3>Data Protection</h3>
+  <p>The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with statutory data protection regulations and this privacy policy.</p>
+
+  <h3>Responsible Party</h3>
+  <p>The responsible party for data processing on this website is:</p>
+  <p>
+    Levi Zimmermann<br>
+    Hohenhorn, Schleswig-Holstein, Germany<br>
+    Email: contact@higan.studio
+  </p>
+
+  <h3>Revocation of your Consent to Data Processing</h3>
+  <p>Many data processing operations are only possible with your express consent. You can revoke consent already given at any time. The legality of the data processing carried out until the revocation remains unaffected by the revocation.</p>
+
+  <h3>SSL or TLS Encryption</h3>
+  <p>For security reasons and to protect the transmission of confidential content, such as inquiries you send to us as the site operator, this site uses SSL or TLS encryption. You can recognize an encrypted connection by the fact that the address line of the browser changes from "http://" to "https://" and by the lock symbol in your browser line.</p>
+
+  </sc-if>
 </main>
 
   <!-- FOOTER -->

@@ -109,6 +109,7 @@
   </nav>
 
   <main class="legal-content">
+  <sc-if value="{{ isDe }}">
 <div class="disclaimer-box">
     <p class="disclaimer-title">PRE-LAUNCH STAGE / COMING SOON</p>
     <p class="disclaimer-text">Higan Studio befindet sich in der Gründungs- und Entwicklungsphase. Aktuell sind keine Verkäufe oder Vertragsabschlüsse möglich. Diese Bedingungen dienen als Vorschau für unseren baldigen offiziellen Start.</p>
@@ -155,6 +156,51 @@
   <p>
     Der Auftragnehmer schuldet jedoch <strong>keinen bestimmten Erfolg</strong> (wie z. B. Platz 1 in Suchergebnissen oder eine garantierte Erwähnung durch KI-Modelle wie ChatGPT), da diese Algorithmen außerhalb seines Einflussbereichs liegen.
   </p>
+  </sc-if>
+
+  <sc-if value="{{ isEn }}">
+<div class="page-label">Legal / Projects</div>
+  <h1>Website Creation Contract</h1>
+
+  <a href="/public/muster-projektvertrag.pdf" class="btn-download">Download Sample Contract (PDF)</a>
+
+  <div class="highlight-box">
+    <p><strong>Focus:</strong> This contract secures the project workflow and the milestone payment model. It defines clear obligations to cooperate and rules for acceptance.</p>
+  </div>
+
+  <h2>§ 1 Subject of the Contract</h2>
+  <p>
+    The contractor (Levi Zimmermann, Higan Studio) undertakes to design, create, and program a website for the client in accordance with the respective individual offer.
+  </p>
+
+  <h2>§ 2 Client's Obligations to Cooperate</h2>
+  <p>
+    The client will provide all content required for the implementation (texts, images, logos) promptly and in digital form. Delays caused by the client's lack of cooperation will extend the agreed delivery times accordingly.
+  </p>
+
+  <h2>§ 3 Remuneration and Payment Terms (Milestone Model)</h2>
+  <p>
+    According to <strong>§ 19 UStG</strong>, no VAT is charged. For mutual security, payment is made according to a binding milestone model:
+  </p>
+  <ul>
+    <li><strong>1st Milestone (30% deposit):</strong> Due immediately upon conclusion of the contract. The project starts after receipt of payment.</li>
+    <li><strong>2nd Milestone (40% interim payment):</strong> Due after presentation and approval of the basic web design by the client.</li>
+    <li><strong>3rd Milestone (30% final payment):</strong> Due after technical completion and final acceptance, but strictly before the final live launch (deployment) of the website.</li>
+  </ul>
+
+  <h2>§ 4 Acceptance</h2>
+  <p>
+    After completion, the contractor will make the website available on a test environment for review. The client undertakes to check and approve the website within <strong>7 working days</strong>. Minor adjustment requests (max. 2 correction loops) are included in the package price. After that, the work is considered accepted.
+  </p>
+
+  <h2>§ 5 LLM Visibility and SEO</h2>
+  <p>
+    The contractor uses modern technologies (e.g., Schema.org, clean HTML) to optimize machine readability for search engines and AI models (LLMs).
+  </p>
+  <p>
+    However, the contractor owes <strong>no specific success</strong> (such as 1st place in search results or a guaranteed mention by AI models like ChatGPT), as these algorithms are beyond their sphere of influence.
+  </p>
+  </sc-if>
 </main>
 
   <!-- FOOTER -->

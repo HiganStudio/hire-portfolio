@@ -109,6 +109,7 @@
   </nav>
 
   <main class="legal-content">
+  <sc-if value="{{ isDe }}">
 <div class="page-label">Rechtliches</div>
   <h1>Nutzungsbedingungen</h1>
 
@@ -146,6 +147,47 @@
   <p>
     Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand ist, soweit gesetzlich zulässig, der Sitz von Levi Zimmermann. Sollten einzelne Bestimmungen unwirksam sein, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
   </p>
+  </sc-if>
+
+  <sc-if value="{{ isEn }}">
+<div class="page-label">Legal</div>
+  <h1>Terms of Service (AGB)</h1>
+
+  <h2>1. Scope</h2>
+  <p>
+    These terms apply to all services (web design, development, SEO, e-commerce) provided by Levi Zimmermann (Higan Studio) to clients. Deviating terms and conditions of the client are not recognized unless Levi Zimmermann expressly agrees to them in writing.
+  </p>
+
+  <h2>2. Conclusion of Contract</h2>
+  <p>
+    A contract is concluded when the client accepts an offer from Levi Zimmermann (in writing or by email) or Levi Zimmermann confirms an order from the client.
+  </p>
+
+  <h2>3. Services and Obligations to Cooperate</h2>
+  <p>
+    The scope of services results from the respective offer. The client is obligated to provide all information, texts, images, and access required for the provision of the service in good time and in digital form. Delays caused by lack of cooperation are at the expense of the delivery time.
+  </p>
+
+  <h2>4. Remuneration and Small Business Regulation</h2>
+  <p>
+    The prices agreed in the offer apply. According to <strong>§ 19 UStG (small business regulation)</strong>, no VAT is charged or shown on invoices. Invoices are payable immediately upon receipt without deduction, unless otherwise agreed.
+  </p>
+
+  <h2>5. Copyright and Rights of Use</h2>
+  <p>
+    The drafts, source code, and design remain the copyrighted property of Levi Zimmermann. Upon full payment of the remuneration, the client receives a simple right to use the work results for the contractually intended purpose, unrestricted in terms of time and space. Passing it on to third parties or sub-licensing is only permitted after written agreement.
+  </p>
+
+  <h2>6. Warranty and Liability</h2>
+  <p>
+    Levi Zimmermann is liable for defects within the scope of statutory provisions. Liability for slight negligence is excluded, provided no essential contractual obligations have been violated. The client is solely liable for the content they provide (e.g., images, texts). The client indemnifies Levi Zimmermann from any third-party claims arising from legal violations by this content.
+  </p>
+
+  <h2>7. Final Provisions</h2>
+  <p>
+    The law of the Federal Republic of Germany applies. The place of jurisdiction is, as far as legally permissible, the registered office of Levi Zimmermann. Should individual provisions be invalid, the validity of the remaining provisions remains unaffected.
+  </p>
+  </sc-if>
 </main>
 
   <!-- FOOTER -->

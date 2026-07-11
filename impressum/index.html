@@ -109,6 +109,7 @@
   </nav>
 
   <main class="legal-content">
+  <sc-if value="{{ isDe }}">
 <div class="page-label">Rechtliches</div>
   <h1>Impressum</h1>
 
@@ -160,6 +161,61 @@
   <p>
     Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.
   </p>
+  </sc-if>
+
+  <sc-if value="{{ isEn }}">
+<div class="page-label">Legal</div>
+  <h1>Imprint</h1>
+
+  <h2>Information according to § 5 DDG</h2>
+  <p>
+    <strong>Levi Zimmermann</strong><br>
+    Higan Studio<br>
+    Hohenhorn, Schleswig-Holstein<br>
+    Germany
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Email: <a href="mailto:contact@higan.studio">contact@higan.studio</a><br>
+    Phone: <a href="tel:+4915233541953">+49 152 335 41953</a>
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>Notice on Value Added Tax (VAT)</h2>
+  <p>
+    As a small business owner pursuant to § 19 (1) UStG, no value-added tax is charged and reported.
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>Responsible for the content according to § 55 (2) RStV</h2>
+  <p>
+    <strong>Levi Zimmermann</strong><br>
+    Hohenhorn, Schleswig-Holstein, Germany
+  </p>
+
+  <div class="divider"></div>
+
+  <h2>Liability for Content</h2>
+  <p>
+    As a service provider, we are responsible for our own content on these pages in accordance with general laws under § 7 (1) DDG. However, according to §§ 8 to 10 DDG, we are not obligated to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.
+  </p>
+  <p>
+    Obligations to remove or block the use of information under general laws remain unaffected. However, liability in this regard is only possible from the point in time at which we become aware of a specific legal violation. If we become aware of such violations, we will remove this content immediately.
+  </p>
+
+  <h2>Liability for Links</h2>
+  <p>
+    Our website contains links to external third-party websites, over whose content we have no influence. Therefore, we cannot accept any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at the time of linking.
+  </p>
+
+  <h2>Copyright</h2>
+  <p>
+    The content and works created by the site operators on these pages are subject to German copyright law. Duplication, processing, distribution, and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use.
+  </p>
+  </sc-if>
 </main>
 
   <!-- FOOTER -->

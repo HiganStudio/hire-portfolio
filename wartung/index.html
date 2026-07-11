@@ -109,6 +109,7 @@
   </nav>
 
   <main class="legal-content">
+  <sc-if value="{{ isDe }}">
 <div class="disclaimer-box">
     <p class="disclaimer-title">PRE-LAUNCH STAGE / COMING SOON</p>
     <p class="disclaimer-text">Higan Studio befindet sich in der Gründungs- und Entwicklungsphase. Aktuell sind keine Verkäufe oder Vertragsabschlüsse möglich. Diese Bedingungen dienen als Vorschau für unseren baldigen offiziellen Start.</p>
@@ -156,6 +157,52 @@
   <p>
     Der Wartungsvertrag wird auf unbestimmte Zeit geschlossen und ist von beiden Parteien mit einer Frist von 30 Tagen zum Monatsende schriftlich (E-Mail genügt) kündbar.
   </p>
+  </sc-if>
+
+  <sc-if value="{{ isEn }}">
+<div class="page-label">Legal / Support</div>
+  <h1>Service Level Agreement (SLA)</h1>
+
+  <a href="/public/muster-sla-wartung.pdf" class="btn-download">Download Service Level Agreement (PDF)</a>
+
+  <div class="highlight-box">
+    <p><strong>Note:</strong> This SLA regulates expectations for support times and availability during ongoing maintenance. In particular, it protects the contractor's flexibility during examination phases or illness.</p>
+  </div>
+
+  <h2>1. Scope of Services</h2>
+  <p>
+    This SLA regulates the ongoing technical support, security updates, and content adjustments (in the agreed hourly scope) of the client's website by Levi Zimmermann (Higan Studio).
+  </p>
+
+  <h2>§ 2 Support Times and Guaranteed Troubleshooting Model</h2>
+  <p>
+    The contractor guarantees technical support and troubleshooting of the systems according to a 2-stage support model to ensure high availability for B2B clients:
+  </p>
+  <p>
+    <strong>Stage 1 (Regular Support):</strong> On weekdays from 4:00 PM to 7:00 PM (CET), regular maintenance and content adjustment work is carried out directly by the contractor.
+  </p>
+  <p>
+    <strong>Stage 2 (Critical Emergency Standby):</strong> On weekdays from 8:00 AM to 4:00 PM (CET), a contractually bound, adult employee is deployed on guaranteed on-call duty. This person intervenes immediately in the event of critical system failures (e.g., server down) to ensure the client's operational business continuity.
+  </p>
+
+  <h2>3. Limitation of Liability for Downtimes</h2>
+  <p>
+    The contractor monitors the system within the scope of technical possibilities but assumes no guarantee for 100% server uptime. Outages caused by third-party providers (hosting providers, CDNs like Cloudflare, power outages) are not the responsibility of the provider.
+  </p>
+
+  <h2>4. Force Majeure and Illness Clause</h2>
+  <p>
+    If the contractor is temporarily unable to fulfill their maintenance obligations due to unforeseeable events (force majeure) or proven sudden illness, a reasonable grace period for service provision will be granted.
+  </p>
+  <p>
+    The client will be informed immediately of the outage. If the contractor's absence lasts longer than 4 weeks, both parties have a special right of termination.
+  </p>
+
+  <h2>5. Term and Termination</h2>
+  <p>
+    The maintenance contract is concluded for an indefinite period and can be terminated by either party with a notice period of 30 days to the end of the month in writing (email is sufficient).
+  </p>
+  </sc-if>
 </main>
 
   <!-- FOOTER -->
