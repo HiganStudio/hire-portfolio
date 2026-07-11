@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make Your Brand Feel Premium - Higan Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:#0a0a0a;color:#f4f2f7;font-family:'Inter',system-ui,sans-serif;overflow-x:clip}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:rgba(195,166,224,.4)}
+    .wrap{min-height:100vh;display:flex;flex-direction:column}
+    .shell{width:min(1120px,100%);margin:0 auto;padding:0 32px}
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:rgba(10,10,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .main-nav{display:flex;align-items:center;gap:26px}
+    .main-nav a{font-size:13.5px;font-weight:400;padding:8px 2px;transition:opacity .25s}
+    .main-nav a:last-child{font-size:13px;letter-spacing:.14em;opacity:.7}
+    .main-nav a:hover{opacity:.55}
+    .hero{padding:96px 0 68px;text-align:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(255,255,255,.1);border-radius:999px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.55;margin:0 0 28px}
+    h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(42px,7vw,96px);line-height:1.02;letter-spacing:-.02em;margin:0 auto;max-width:12ch}
+    .lead{max-width:760px;margin:28px auto 0;font-size:clamp(16px,1.8vw,21px);line-height:1.8;font-weight:300;opacity:.76}
+    .accent{font-style:italic;color:#c3a6e0}
+    .caret{display:inline-block;width:2px;height:.9em;margin-left:2px;background:currentColor;vertical-align:baseline;animation:blink 1s steps(1) infinite}
+    @keyframes blink{50%{opacity:0}}
+    .section{padding:18px 0 48px}
+    .section h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,4vw,46px);line-height:1.08;margin:0 0 14px;text-align:center}
+    .section p.sub{max-width:720px;margin:0 auto 38px;text-align:center;opacity:.58;font-size:15px;line-height:1.7;font-weight:300}
+    .cards{display:grid;grid-template-columns:1fr;gap:16px}
+    .card{padding:28px;border-radius:18px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.02);display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:flex-start;will-change:transform;transition:transform .9s cubic-bezier(.22,.9,.26,1.15),border-color .3s ease,background .3s ease,box-shadow .3s ease}
+    .card:hover{transform:translateY(-9px) scale(1.015);border-color:#d9c6ee;background:rgba(200,170,230,.1);box-shadow:0 20px 44px rgba(200,170,230,.22)}
+    .num{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.14em;opacity:.45;padding-top:4px;transition:opacity .3s ease,transform .5s cubic-bezier(.3,1.4,.4,1);display:inline-block}
+    .card:hover .num{opacity:.75}
+    .card h3{margin:0 0 8px;font-size:18px;font-weight:500;line-height:1.35;transition:color .3s ease}
+    .card:hover h3{color:#e4d3f5}
+    .card p{margin:0;font-size:14.5px;line-height:1.7;font-weight:300;opacity:.7;transition:opacity .3s ease}
+    .card:hover p{opacity:.85}
+    .quote{padding:56px 0 22px}
+    .quote blockquote{margin:0 auto;max-width:860px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(26px,3.8vw,38px);line-height:1.35;text-align:center}
+    .quote .byline{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:28px}
+    .avatar{width:54px;height:54px;border-radius:50%;overflow:hidden;background:#222}
+    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .byline strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+    .byline span{display:block;font-size:13px;opacity:.5}
+    .cta{margin:34px 0 64px;padding:34px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.02);text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .cta h2{margin-bottom:14px}
+    .cta p{max-width:640px;margin:0 auto 30px}
+    form{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:14px;text-align:left}
+    label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.56}
+    input{width:100%;padding:16px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.2);color:#fff;font:inherit;font-size:15px;outline:none}
+    input:focus{border-color:rgba(255,255,255,.38)}
+    button{width:100%;margin-top:8px;padding:17px 22px;border:none;border-radius:12px;background:#fff;color:#000;font:inherit;font-size:15px;font-weight:500;cursor:pointer;transition:transform .2s ease}
+    button:hover{transform:scale(1.01)}
+    .fine{font-size:12px;opacity:.42;margin-top:18px;line-height:1.6}
+    footer{position:relative;z-index:10;margin-top:auto;padding:0;border-top:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.015)}
+    .footer-grid{max-width:1240px;margin:0 auto;padding:64px 40px 30px;display:grid;grid-template-columns:1.3fr .8fr 1fr;gap:40px}
+    .footer-bottom{max-width:1240px;margin:0 auto;padding:20px 40px 34px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;border-top:1px solid rgba(255,255,255,.08);font-family:'Space Mono',monospace;font-size:12px;opacity:.45}
+    .footer-link{transition:opacity .25s ease}.footer-link:hover{opacity:.55}.footer-guide{position:relative;display:inline-block;opacity:.65;transition:transform .3s ease,opacity .3s ease}.footer-guide::before{content:'→';position:absolute;left:-20px;top:0;opacity:0;transition:left .3s ease,opacity .3s ease}.footer-guide:hover{transform:translateX(20px);opacity:1}.footer-guide:hover::before{left:-22px;opacity:.7}
+    @media (max-width:720px){
+      .shell{padding:0 20px}
+      .topbar{padding:16px 20px 14px}
+      .footer-grid{grid-template-columns:1fr;padding:46px 20px 26px;gap:34px}.footer-bottom{padding:20px 20px 28px}
+      .hero{padding:72px 0 52px}
+      .card{grid-template-columns:1fr;gap:10px;padding:22px}
+      .cta,.section{padding-left:0;padding-right:0}
+    }
+  </style>
+</head>
+<body>
+  <canvas data-petals aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:999"></canvas>
+  <div class="wrap">
+    <header class="topbar">
+      <a href="/" aria-label="Higan home"><img src="/assets/higan-logo-white-trim.png" alt="Higan" style="height:38px;width:auto;display:block"></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#contact">Contact</a>
+        <a href="/">DE</a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Free Guide</p>
+        <h1><span data-prefix>Build</span><br><span class="accent" data-typewriter></span><span class="caret"></span></h1>
+        <p class="lead">A premium feeling changes how people read your product before they know the details. This guide shows how design can raise trust and make the offer feel worth choosing.</p>
+      </section>
+
+      <section class="section">
+        <h2>Make your brand feel premium</h2>
+        <p class="sub">A clear, practical look at how typography, spacing, motion, and structure can make a page feel sharper and more persuasive.</p>
+        <div class="cards">
+          <article class="card"><div class="num">01</div><div><h3>Make the first impression feel expensive</h3><p>Learn how a refined visual system changes perceived value before a visitor reads a single sentence.</p></div></article>
+          <article class="card"><div class="num">02</div><div><h3>Use typography to raise trust</h3><p>Pick type, scale, and rhythm that make the product feel considered, coherent, and worth paying attention to.</p></div></article>
+          <article class="card"><div class="num">03</div><div><h3>Guide attention with restraint</h3><p>Use motion and spacing to lead the eye without making the interface feel busy or decorative.</p></div></article>
+          <article class="card"><div class="num">04</div><div><h3>Turn visual polish into conversion</h3><p>Structure the page so the premium feeling supports the offer instead of sitting on top of it.</p></div></article>
+        </div>
+      </section>
+
+      <section class="quote">
+        <blockquote>Design is the part of the product people feel before they decide to believe it.</blockquote>
+        <div class="byline">
+          <div class="avatar"><img src="https://ui-avatars.com/api/?name=Levi&background=0D0D0D&color=fff" alt="Levi"></div>
+          <div><strong>Levi Zimmermann</strong><span>Founder, Higan Studio</span></div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <h2>Get the guide</h2>
+        <p>Use it as a checklist the next time a landing page needs to feel more premium.</p>
+        <form onsubmit="event.preventDefault();alert('Thanks. The guide will be sent shortly.');">
+          <div><label for="name">First name</label><input id="name" type="text" placeholder="Levi" autocomplete="given-name"></div>
+          <div><label for="company">Company</label><input id="company" type="text" placeholder="Higan Studio" autocomplete="organization"></div>
+          <div><label for="email">Email address</label><input id="email" type="email" placeholder="contact@higan.studio" autocomplete="email" required></div>
+          <button class="hg-cta" type="submit">Send me the guide</button>
+        </form>
+        <div class="fine">No spam. No newsletter trap. Unsubscribe anytime.</div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid"><div><img src="/assets/higan-logo-white-trim.png" alt="Higan" style="height:34px;margin-bottom:18px"><p style="opacity:.5;font-weight:300;font-size:14px;line-height:1.7;margin:0 0 20px;max-width:30ch">Digital products that lead with aesthetics and hold up through substance.</p><p style="opacity:.6;font-weight:300;font-size:14px;margin:0 0 8px">Hamburg, Deutschland</p><p style="font-family:'Space Mono',monospace;opacity:.4;font-size:12px;margin:0 0 18px">© 2026 Higan</p><div style="display:flex;gap:10px"><a href="#" aria-label="Instagram" class="footer-link" style="width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center"><span style="width:16px;height:16px;border:1.5px solid #f4f2f7;border-radius:5px;position:relative;display:inline-block"><span style="position:absolute;inset:0;margin:auto;width:6px;height:6px;border:1.4px solid #f4f2f7;border-radius:50%"></span><span style="position:absolute;top:2px;right:2px;width:2px;height:2px;border-radius:50%;background:#f4f2f7"></span></span></a><a href="#" aria-label="LinkedIn" class="footer-link" style="width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center"><span style="font-family:'Space Mono',monospace;font-weight:700;font-size:13px">in</span></a></div></div><div><p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">Get in touch</p><a href="/#contact" class="footer-link" style="opacity:.8;font-weight:400;font-size:15px;display:block;margin-bottom:10px">Contact →</a><a href="mailto:contact@higan.studio" class="footer-link" style="opacity:.6;font-weight:300;font-size:14px">contact@higan.studio</a></div><div><p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">Free Guides</p><div style="display:flex;flex-direction:column;gap:10px"><a class="footer-guide" style="font-weight:300;font-size:14px;display:block" href="/guides/open-source/">Build something you own</a><a class="footer-guide" style="font-weight:300;font-size:14px;display:block" href="/guides/vendor-lock-in/">Keep your stack flexible</a><a class="footer-guide" style="font-weight:300;font-size:14px;display:block" href="/guides/trust-through-aesthetics/">Make your brand feel premium</a></div></div></div>
+      <div class="footer-bottom"><div style="display:flex;gap:24px;flex-wrap:wrap"><a href="/projektvertrag" class="footer-link">Projektvertrag</a><a href="/wartung" class="footer-link">SLA / Wartung</a><a href="/tos" class="footer-link">AGB</a></div><div style="display:flex;gap:24px"><a href="/impressum" class="footer-link">Impressum</a><a href="/datenschutz" class="footer-link">Datenschutz</a></div></div>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const el = document.querySelector('[data-typewriter]');
+      const words = ['trust','desire','authority','clarity'];
+      if (!el || !words.length) return;
+      let i = 0, j = 0, deleting = false;
+      const run = () => {
+        const word = words[i];
+        j += deleting ? -1 : 1;
+        el.textContent = word.slice(0, j);
+        let delay = deleting ? 42 : 72;
+        if (!deleting && j === word.length) { deleting = true; delay = 1100; }
+        else if (deleting && j === 0) { deleting = false; i = (i + 1) % words.length; delay = 280; }
+        window.setTimeout(run, delay);
+      };
+      run();
+    })();
+  </script>
+  <script src="/guides/petals.js?v=main-petals-1"></script>
+</body>
+</html>

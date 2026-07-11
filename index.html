@@ -355,9 +355,9 @@
       <div>
         <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">{{ t.guides }}</p>
         <div style="display:flex;flex-direction:column;gap:10px">
-          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide1 }}</span>
-          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide2 }}</span>
-          <span class="hg-guide" style="font-weight:300;font-size:14px;cursor:pointer;display:block;" onClick="{{ navGuide }}">{{ t.guide3 }}</span>
+          <a class="hg-guide" style="font-weight:300;font-size:14px;display:block;" href="/guides/open-source/">{{ t.guide1 }}</a>
+          <a class="hg-guide" style="font-weight:300;font-size:14px;display:block;" href="/guides/vendor-lock-in/">{{ t.guide2 }}</a>
+          <a class="hg-guide" style="font-weight:300;font-size:14px;display:block;" href="/guides/trust-through-aesthetics/">{{ t.guide3 }}</a>
         </div>
       </div>
     </div>
@@ -400,7 +400,7 @@ class Component extends DCLogic {
       blk3t:'Aesthetische Dominanz', blk3d:'Strukturiertes Motion Design, ästhetische Innovation und eine Design-Language, die im Kopf bleibt und über allem thront.',
       mission:'Unsere Mission', missionD:'Digitale Produkte bauen, die sich anfühlen wie sie aussehen: präzise, lebendig, kompromisslos.', vision:'Unsere Vision', visionD:'Die Standardmesslatte für digitales Handwerk im deutschsprachigen Raum heben.',
       contactSub:'Erzähl uns von deinem Projekt — oder buch direkt einen Termin. Wir antworten innerhalb von 24 Stunden.',
-      footBlurb:'Digitalstudio für ästhetische, performante und skalierbare Produkte.', guides:'Free Guides', getInTouch:'Kontakt', guide1:'Der Open-Source-Vorteil', guide2:'Wege aus dem Vendor-Lock-in', guide3:'Vertrauen durch Ästhetik',
+      footBlurb:'Digitalstudio für ästhetische, performante und skalierbare Produkte.', guides:'Free Guides', getInTouch:'Kontakt', guide1:'Etwas, das dir gehört', guide2:'Dein Stack bleibt flexibel', guide3:'Marke mit Premium-Feeling',
       wf:[{num:'01',title:'Discovery',desc:'Wir verstehen dein Produkt, deine Nutzer und deine Ziele.'},{num:'02',title:'Umsetzung',desc:'Design und Engineering in engen, sichtbaren Iterationen.'},{num:'03',title:'Skalierung',desc:'Wir wachsen mit — Wartung, Automation und neue Module.'}],
       posts:[{tag:'ESSAY',title:'Warum „Enterprise"-Software meistens ein Fehler ist',date:'JUN 2026'},{tag:'GUIDE',title:'Der richtige Tech-Stack für 2026',date:'MAI 2026'},{tag:'NOTES',title:'Motion Design als Conversion-Werkzeug',date:'APR 2026'}] },
     en:{ studio:'Digital Studio · Vienna', projects:'Projects', services:'Services', about:'About Us', blog:'Blog', contact:'Contact',
@@ -422,7 +422,7 @@ class Component extends DCLogic {
       blk3t:'Aesthetic Dominance', blk3d:'Structured motion design, aesthetic innovation and a design language that stays with you and towers above the rest.',
       mission:'Our Mission', missionD:'Build digital products that feel the way they look: precise, alive, uncompromising.', vision:'Our Vision', visionD:'Raise the default bar for digital craft.',
       contactSub:'Tell us about your project — or book a slot directly. We reply within 24 hours.',
-      footBlurb:'Digital studio for aesthetic, performant and scalable products.', guides:'Free Guides', getInTouch:'Contact', guide1:'The Open Source Advantage', guide2:'Escaping Vendor Lock-in', guide3:'Trust Through Aesthetics',
+      footBlurb:'Digital studio for aesthetic, performant and scalable products.', guides:'Free Guides', getInTouch:'Contact', guide1:'Build Something You Actually Own', guide2:'Keep Your Stack Flexible', guide3:'Make Your Brand Feel Premium',
       wf:[{num:'01',title:'Discovery',desc:'We understand your product, your users and your goals.'},{num:'02',title:'Delivery',desc:'Design and engineering in tight, visible iterations.'},{num:'03',title:'Scale',desc:'We grow with you — maintenance, automation and new modules.'}],
       posts:[{tag:'ESSAY',title:'Why "enterprise" software is usually a mistake',date:'JUN 2026'},{tag:'GUIDE',title:'The right tech stack for 2026',date:'MAY 2026'},{tag:'NOTES',title:'Motion design as a conversion tool',date:'APR 2026'}] }
   };
@@ -911,8 +911,8 @@ class Component extends DCLogic {
       +'<div style="width:clamp(38px,5.6vh,52px);height:clamp(38px,5.6vh,52px);border-radius:50%;background:linear-gradient(155deg,#8a68b4,#4a2f6b);display:flex;align-items:center;justify-content:center;color:#fff;font-family:\'Cormorant Garamond\',serif;font-size:clamp(15px,2vh,19px);margin-bottom:clamp(10px,1.8vh,18px)">HG</div>'
       +'<p style="margin:0 0 4px;font-size:clamp(11px,1.3vh,12.5px);opacity:.5;font-weight:500">Higan Team</p>'
       +'<h3 style="font-family:\'Cormorant Garamond\',serif;font-weight:600;font-size:clamp(18px,2.6vh,25px);margin:0 0 clamp(10px,2vh,22px)">'+t.discovery+' · 30 min</h3>'
-      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(6px,1.2vh,12px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span style="width:15px;height:15px;border:1.4px solid currentColor;border-radius:50%;flex-shrink:0"></span>30 min</div>'
-      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(10px,2vh,22px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span style="width:16px;height:11px;border:1.4px solid currentColor;border-radius:3px;flex-shrink:0"></span>'+t.videoInfo+'</div>'
+      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(6px,1.2vh,12px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span aria-hidden="true" style="width:16px;height:16px;border:1.4px solid currentColor;border-radius:50%;flex-shrink:0;position:relative"><i style="position:absolute;left:7px;top:2.5px;width:1.4px;height:4.6px;background:currentColor;transform-origin:bottom"></i><i style="position:absolute;left:7px;top:7.1px;width:3.8px;height:1.4px;background:currentColor;transform-origin:left"></i></span>30 min</div>'
+      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(10px,2vh,22px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span aria-hidden="true" style="width:18px;height:12px;border:1.4px solid currentColor;border-radius:3px;flex-shrink:0;position:relative"><i style="position:absolute;right:-5px;top:2.5px;width:0;height:0;border-top:3px solid transparent;border-bottom:3px solid transparent;border-left:5px solid currentColor"></i></span>'+t.videoInfo+'</div>'
       +'<p style="font-size:clamp(11.5px,1.3vh,13.5px);line-height:1.6;opacity:.6;margin:0 0 clamp(8px,1.6vh,18px)">'+t.bookingIntro+'</p>'
       +'<a href="mailto:contact&#64;higan.studio" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(15px,2vh,20px);border-bottom:1px solid #7c5aa6;padding-bottom:2px;width:fit-content">contact&#64;higan.studio</a></div>'
       +'<div style="padding:clamp(18px,3vh,36px)">'
