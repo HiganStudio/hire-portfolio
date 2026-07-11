@@ -46,14 +46,11 @@ def safe_span_replace(html):
 prefix = safe_span_replace(prefix)
 suffix = safe_span_replace(suffix)
 
-# Remove the toggleLang button on legal pages because they are German-only
-prefix = re.sub(r'<button[^>]*toggleLang.*?/button>', '', prefix, flags=re.DOTALL)
-
 css = """
   .legal-content { max-width: 760px; margin: 0 auto; padding: 160px 32px 100px; color: #f4f2f7; font-weight: 300; line-height: 1.7; position: relative; z-index: 10; }
-  .legal-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5vw, 62px); font-weight: 500; margin-bottom: 56px; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
-  .legal-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-top: 56px; margin-bottom: 16px; color: #e4d3f5; }
-  .legal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; color: #d9c6ee; }
+  .legal-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5vw, 62px); font-weight: 500; margin-bottom: 56px; color: #c3a6e0; font-style: italic; line-height: 1.1; letter-spacing: -0.02em; }
+  .legal-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 500; margin-top: 56px; margin-bottom: 16px; color: #c3a6e0; }
+  .legal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; margin-top: 32px; margin-bottom: 12px; color: #c3a6e0; opacity: 0.9; }
   .legal-content p { margin-bottom: 24px; opacity: 0.75; font-size: 16px; }
   .legal-content ul { margin-bottom: 24px; padding-left: 20px; opacity: 0.75; font-size: 16px; }
   .legal-content li { margin-bottom: 10px; }
