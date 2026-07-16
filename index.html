@@ -61,6 +61,11 @@
   @keyframes hgArrowPulse{0%,100%{box-shadow:0 0 0 0 rgba(195,166,224,0)}50%{box-shadow:0 0 0 6px rgba(195,166,224,.12)}}
   .hg-flow.hg-in .hg-flow-arrow{animation:hgArrowPulse 2.4s ease-in-out infinite,hgFlowArrowIn .7s cubic-bezier(.3,1.4,.4,1) .3s both}
   @keyframes hgFlowArrowIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+  .hg-scroll-cue{position:fixed;z-index:38;left:50%;bottom:94px;width:18px;height:18px;pointer-events:none;opacity:0;transform:translate(-50%,6px);transition:opacity .25s ease,transform .25s ease}
+  .hg-scroll-cue::after{content:'';position:absolute;inset:2px 3px 5px;border-right:1.5px solid rgba(244,242,247,.9);border-bottom:1.5px solid rgba(244,242,247,.9);transform:rotate(45deg)}
+  .hg-scroll-cue.hg-visible{opacity:.8;transform:translate(-50%,0);animation:hgScrollCue 1.2s cubic-bezier(.4,0,.2,1) infinite}
+  @keyframes hgScrollCue{0%,100%{transform:translate(-50%,0)}45%{transform:translate(-50%,7px)}65%{transform:translate(-50%,3px)}}
+  @media (prefers-reduced-motion:reduce){.hg-scroll-cue.hg-visible{animation:none}.hg-reveal,.hg-wf,.hg-tile,.hg-device{transition-duration:.01ms!important}}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
@@ -86,6 +91,7 @@
       <span class="hg-navlink" style="text-align:center;cursor:pointer;color:#17151d;padding:9px 18px;font-size:12.5px;font-weight:500;white-space:nowrap" onClick="{{ navContact }}">{{ t.contact }}</span>
     </div>
   </nav>
+  <div ref="{{ scrollCueRef }}" class="hg-scroll-cue" aria-hidden="true"></div>
 
   <main style="position:relative;z-index:10">
 
@@ -437,19 +443,27 @@ class Component extends DCLogic {
   };
 
   componentDidMount(){
+    // This renderer does not reliably supply previous state to componentDidUpdate.
+    this._prevRoute=this.state.route;
     this.startTyping();
     this.initPetals();
     this._onScroll = ()=>{ if(this._st) return; this._st=requestAnimationFrame(()=>{ this._st=null; this.onScroll(); }); };
     addEventListener('scroll', this._onScroll, {passive:true});
     addEventListener('resize', this._onScroll, {passive:true});
+    this._onScrollIntent=()=>this.cancelScrollPrompt();
+    addEventListener('wheel', this._onScrollIntent, {passive:true});
+    addEventListener('touchstart', this._onScrollIntent, {passive:true});
     this.mountSlots();
     this.onScroll();
+    this.startScrollPrompt(180);
+    this._scrollPromptTimer=setInterval(()=>this.startScrollPrompt(),3000);
   }
-  componentWillUnmount(){ removeEventListener('scroll',this._onScroll); cancelAnimationFrame(this._raf); cancelAnimationFrame(this._fallRaf); }
+  componentWillUnmount(){ removeEventListener('scroll',this._onScroll); removeEventListener('wheel',this._onScrollIntent); removeEventListener('touchstart',this._onScrollIntent); cancelAnimationFrame(this._raf); cancelAnimationFrame(this._fallRaf); this.cancelScrollPrompt(); clearInterval(this._scrollPromptTimer); }
   slotSig(){ return [this.state.route,this.state.lang,this.state.selectedDay,this.state.selectedTime,this.state.monthOffset].join('|'); }
-  componentDidUpdate(_,prev){
-    const routeChanged = prev && prev.route!==this.state.route;
-    if(routeChanged){ this.setState({typed:'',wordIdx:0}); requestAnimationFrame(()=>{ window.scrollTo(0,0); this._sig=null; this.mountSlots(); this.onScroll(); setTimeout(()=>{ this._sig=null; this.mountSlots(); },90); }); return; }
+  componentDidUpdate(){
+    const routeChanged = this._prevRoute!==this.state.route;
+    this._prevRoute=this.state.route;
+    if(routeChanged){ this.setState({typed:'',wordIdx:0}); requestAnimationFrame(()=>{ window.scrollTo(0,0); this._sig=null; this.mountSlots(); this.onScroll(); this.startScrollPrompt(120); setTimeout(()=>{ this._sig=null; this.mountSlots(); },90); }); return; }
     // only rebuild injected slots when their inputs actually changed — never on typing ticks
     if(this.slotSig()!==this._sig){ requestAnimationFrame(()=>this.mountSlots()); }
     // re-sync nav position/visibility on every render (not just real scroll events) — otherwise
@@ -462,6 +476,7 @@ class Component extends DCLogic {
   onScroll(){
     this.revealScan();
     this.syncNav();
+    this.syncScrollCue();
     // Tetris drop — autoplayed once via startBlockFall(), triggered from this scroll handler
     // (IntersectionObserver is unreliable in this preview environment)
     if(this._fall && !this._blocksPlayed){
@@ -470,6 +485,35 @@ class Component extends DCLogic {
       const ratio=Math.max(0,visible)/r.height;
       if(ratio>=0.85) this.startBlockFall();
     }
+  }
+
+  isAtTop(){ return (window.scrollY||document.documentElement.scrollTop||0)<=2; }
+  syncScrollCue(){
+    if(this._scrollCue) this._scrollCue.classList.toggle('hg-visible',this._cueNudging||this.isAtTop());
+  }
+  startScrollPrompt(delay=0){
+    clearTimeout(this._scrollPromptDelay);
+    this._scrollPromptDelay=setTimeout(()=>this.nudgeScrollPrompt(),delay);
+  }
+  nudgeScrollPrompt(){
+    if(document.hidden||this._cueNudging||!this.isAtTop()||matchMedia('(prefers-reduced-motion: reduce)').matches){ this.syncScrollCue(); return; }
+    this._cueNudging=true;
+    this.syncScrollCue();
+    const start=performance.now(), duration=420, distance=14;
+    const frame=now=>{
+      const progress=Math.min(1,(now-start)/duration);
+      window.scrollTo(0,Math.sin(progress*Math.PI)*distance);
+      if(progress<1) this._scrollPromptRaf=requestAnimationFrame(frame);
+      else { window.scrollTo(0,0); this._cueNudging=false; this.syncScrollCue(); }
+    };
+    this._scrollPromptRaf=requestAnimationFrame(frame);
+  }
+  cancelScrollPrompt(){
+    clearTimeout(this._scrollPromptDelay);
+    cancelAnimationFrame(this._scrollPromptRaf);
+    if(this._cueNudging) window.scrollTo(0,0);
+    this._cueNudging=false;
+    this.syncScrollCue();
   }
 
   // Nav docking is re-applied here AND from componentDidUpdate — the typing animation calls
@@ -959,7 +1003,7 @@ class Component extends DCLogic {
     ];
     return {
       t, petalCanvas:el=>this._petal=el,
-      rootRef:el=>this._root=el, navRef:el=>this._nav=el, footerRef:el=>this._footer=el,
+      rootRef:el=>this._root=el, navRef:el=>this._nav=el, footerRef:el=>this._footer=el, scrollCueRef:el=>{this._scrollCue=el;this.syncScrollCue();},
       fallRef:el=>{ this._fall=el; },
       tilesSlot:el=>this._tiles=el, bookingSlot2:el=>this._booking2=el,
       langLabel:this.state.lang==='de'?'DE':'EN',
