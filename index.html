@@ -38,7 +38,7 @@
   <footer class="footer"><div class="wrap"><img src="/assets/higan-logo-white-trim.png" width="142" height="38" alt="Higan Studio"><p>Digitale Produkte, Design und Automatisierung.</p><nav aria-label="Weiterführende Links"><a href="/guides/open-source/">Open Source Guide</a><a href="/guides/vendor-lock-in/">Vendor Lock-in Guide</a><a href="/guides/trust-through-aesthetics/">Trust through aesthetics</a><a href="/projektvertrag">Projektvertrag</a><a href="/wartung">Wartung</a><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a></nav><small>© Higan Studio</small></div></footer>
   <script>
     window.addEventListener('DOMContentLoaded', function () {
-      fetch('/interactive-app.html', { cache: 'no-cache' }).then(function (response) {
+      fetch('/interactive-app.js', { cache: 'no-cache' }).then(function (response) {
         if (!response.ok) throw new Error('Interactive application unavailable');
         return response.text();
       }).then(function (html) {
