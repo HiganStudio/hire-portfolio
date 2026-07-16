@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Higan Studio — Digitale Produkte, Design &amp; Automatisierung</title>
 <script src="./support.js"></script>
 </head>
 <body>
