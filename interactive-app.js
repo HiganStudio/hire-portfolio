@@ -62,10 +62,12 @@
   @keyframes hgArrowPulse{0%,100%{box-shadow:0 0 0 0 rgba(195,166,224,0)}50%{box-shadow:0 0 0 6px rgba(195,166,224,.12)}}
   .hg-flow.hg-in .hg-flow-arrow{animation:hgArrowPulse 2.4s ease-in-out infinite,hgFlowArrowIn .7s cubic-bezier(.3,1.4,.4,1) .3s both}
   @keyframes hgFlowArrowIn{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
-  .hg-scroll-cue{position:fixed;z-index:38;left:50%;bottom:94px;width:18px;height:18px;pointer-events:none;opacity:0;transform:translate(-50%,6px);transition:opacity .25s ease,transform .25s ease}
-  .hg-scroll-cue::after{content:'';position:absolute;inset:2px 3px 5px;border-right:1.5px solid rgba(244,242,247,.9);border-bottom:1.5px solid rgba(244,242,247,.9);transform:rotate(45deg)}
-  .hg-scroll-cue.hg-visible{opacity:.8;transform:translate(-50%,0);animation:hgScrollCue 1.2s cubic-bezier(.4,0,.2,1) infinite}
-  @keyframes hgScrollCue{0%,100%{transform:translate(-50%,0)}45%{transform:translate(-50%,7px)}65%{transform:translate(-50%,3px)}}
+  .hg-scroll-cue{position:fixed;z-index:38;left:50%;bottom:116px;width:34px;height:34px;pointer-events:auto;cursor:pointer;opacity:0;transform:translate(-50%,8px);transition:opacity .25s ease,transform .25s ease;filter:drop-shadow(0 2px 6px rgba(0,0,0,.55))}
+  /* symmetric down-chevron: a centered SQUARE with equal right+bottom borders,
+     rotated exactly 45deg — the two arms mirror across the vertical axis */
+  .hg-scroll-cue::after{content:'';position:absolute;top:50%;left:50%;width:14px;height:14px;transform:translate(-50%,-62%) rotate(45deg);border-right:2.5px solid rgba(244,242,247,.95);border-bottom:2.5px solid rgba(244,242,247,.95)}
+  .hg-scroll-cue.hg-visible{opacity:.95;transform:translate(-50%,0);animation:hgScrollCue 1.8s ease-in-out infinite}
+  @keyframes hgScrollCue{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,11px)}}
   @media (prefers-reduced-motion:reduce){.hg-scroll-cue.hg-visible{animation:none}.hg-reveal,.hg-wf,.hg-tile,.hg-device{transition-duration:.01ms!important}}
 </style>
 <script src="./image-slot.js"></script>
@@ -92,7 +94,7 @@
       <span class="hg-navlink" style="text-align:center;cursor:pointer;color:#17151d;padding:9px 18px;font-size:12.5px;font-weight:500;white-space:nowrap" onClick="{{ navContact }}">{{ t.contact }}</span>
     </div>
   </nav>
-  <div ref="{{ scrollCueRef }}" class="hg-scroll-cue" aria-hidden="true"></div>
+  <div ref="{{ scrollCueRef }}" onClick="{{ scrollCueClick }}" role="button" tabindex="0" aria-label="Scroll down" class="hg-scroll-cue"></div>
 
   <main style="position:relative;z-index:10">
 
@@ -457,7 +459,7 @@ class Component extends DCLogic {
     this.mountSlots();
     this.onScroll();
     this.startScrollPrompt(180);
-    this._scrollPromptTimer=setInterval(()=>this.startScrollPrompt(),3000);
+    this._scrollPromptTimer=setInterval(()=>this.startScrollPrompt(),5000);
   }
   componentWillUnmount(){ removeEventListener('scroll',this._onScroll); removeEventListener('wheel',this._onScrollIntent); removeEventListener('touchstart',this._onScrollIntent); cancelAnimationFrame(this._raf); cancelAnimationFrame(this._fallRaf); this.cancelScrollPrompt(); clearInterval(this._scrollPromptTimer); }
   slotSig(){ return [this.state.route,this.state.lang,this.state.selectedDay,this.state.selectedTime,this.state.monthOffset].join('|'); }
@@ -500,12 +502,23 @@ class Component extends DCLogic {
     if(document.hidden||this._cueNudging||!this.isAtTop()||matchMedia('(prefers-reduced-motion: reduce)').matches){ this.syncScrollCue(); return; }
     this._cueNudging=true;
     this.syncScrollCue();
-    const start=performance.now(), duration=420, distance=14;
+    // Smooth, symmetric peek: ease down far enough to reveal a slice of the
+    // next section's text, dwell so it's readable, then ease back — all with
+    // the same easeInOutCubic curve so down and up mirror each other.
+    const start=performance.now();
+    const distance=Math.min(170,Math.round(innerHeight*0.22));
+    // one clean pop (~2.3s of motion) then a clear ~2.7s pause, so the 5s
+    // interval reads as a distinct beat rather than near-constant scrolling
+    const down=800, hold=600, up=900, total=down+hold+up;
+    const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
     const frame=now=>{
-      const progress=Math.min(1,(now-start)/duration);
-      window.scrollTo(0,Math.sin(progress*Math.PI)*distance);
-      if(progress<1) this._scrollPromptRaf=requestAnimationFrame(frame);
-      else { window.scrollTo(0,0); this._cueNudging=false; this.syncScrollCue(); }
+      const el=now-start; let y;
+      if(el<down) y=ease(el/down)*distance;
+      else if(el<down+hold) y=distance;
+      else if(el<total) y=distance*(1-ease((el-down-hold)/up));
+      else { window.scrollTo(0,0); this._cueNudging=false; this.syncScrollCue(); return; }
+      window.scrollTo(0,y);
+      this._scrollPromptRaf=requestAnimationFrame(frame);
     };
     this._scrollPromptRaf=requestAnimationFrame(frame);
   }
@@ -1005,6 +1018,12 @@ class Component extends DCLogic {
     return {
       t, petalCanvas:el=>this._petal=el,
       rootRef:el=>this._root=el, navRef:el=>this._nav=el, footerRef:el=>this._footer=el, scrollCueRef:el=>{this._scrollCue=el;this.syncScrollCue();},
+      scrollCueClick:e=>{ e&&e.preventDefault&&e.preventDefault(); clearTimeout(this._scrollPromptDelay); cancelAnimationFrame(this._scrollPromptRaf); this._cueNudging=false; this.syncScrollCue();
+        // controlled eased glide (browser-agnostic, ~750ms) down ~90% of a screen
+        const startY=window.scrollY, target=Math.round(startY+innerHeight*0.9), dur=750, t0=performance.now();
+        const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+        const step=now=>{ const p=Math.min(1,(now-t0)/dur); window.scrollTo(0,startY+(target-startY)*ease(p)); if(p<1) this._scrollPromptRaf=requestAnimationFrame(step); };
+        this._scrollPromptRaf=requestAnimationFrame(step); },
       fallRef:el=>{ this._fall=el; },
       tilesSlot:el=>this._tiles=el, bookingSlot2:el=>this._booking2=el,
       langLabel:this.state.lang==='de'?'DE':'EN',
