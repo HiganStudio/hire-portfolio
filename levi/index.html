@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Levi Zimmermann — Gründer &amp; Entwickler, Higan Studio</title>
+  <meta name="description" content="Levi Zimmermann — Gründer und Lead Developer von Higan Studio. Web Design, self-hosted Commerce und Produktentwicklung. Ausgewählte Arbeiten und Kontakt.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://hire.higan.studio/levi/">
+  <meta property="og:title" content="Levi Zimmermann — Gründer &amp; Entwickler, Higan Studio">
+  <meta property="og:description" content="Gründer und Lead Developer von Higan Studio. Web Design, self-hosted Commerce und Produktentwicklung.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://hire.higan.studio/levi/">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    html, body { overflow-x: clip; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #f4f2f7; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: rgba(124,90,166,.4); }
+
+    #petalCanvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; }
+
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: rgba(10,10,10,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.06); }
+    header img { height: 36px; width: auto; display: block; }
+    header nav { display: flex; gap: 26px; font-size: 13.5px; }
+    header nav a { opacity: .85; transition: opacity .25s; }
+    header nav a:hover { opacity: .5; }
+
+    main { position: relative; z-index: 10; width: min(760px, calc(100% - 44px)); margin: 0 auto; padding: 150px 0 90px; }
+    .page-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; opacity: .45; margin-bottom: 18px; display: block; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; color: #c3a6e0; font-size: clamp(40px, 8vw, 74px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 14px; }
+    .lv-role { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #c3a6e0; opacity: .85; display: block; margin: 0 0 40px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: #c3a6e0; font-size: 30px; margin: 0 0 20px; }
+    p { color: #ded9e4; font-weight: 300; margin: 0 0 22px; }
+    .lv-lede { font-size: 19px; line-height: 1.75; opacity: .9; }
+
+    .divider { height: 1px; background: rgba(255,255,255,.12); margin: 52px 0; }
+
+    .lv-skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 4px 0 0; padding: 0; list-style: none; }
+    .lv-skills li { font-family: 'Space Mono', monospace; font-size: 12.5px; color: rgba(244,242,247,.72); border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: 8px 16px; background: rgba(255,255,255,.02); }
+
+    .lv-work { display: flex; flex-direction: column; gap: 16px; }
+    .lv-card { display: block; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 26px 30px; background: rgba(255,255,255,.02); transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease, background .3s ease; }
+    .lv-card:hover { transform: translateY(-4px); border-color: rgba(195,166,224,.45); background: rgba(195,166,224,.06); }
+    .lv-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+    .lv-card-name { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 24px; color: #fff; }
+    .lv-card-meta { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #c3a6e0; opacity: .8; white-space: nowrap; }
+    .lv-card-desc { font-size: 15px; line-height: 1.65; opacity: .6; margin: 0; }
+    .lv-card-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; font-family: 'Space Mono', monospace; font-size: 12.5px; color: #d9c6ee; opacity: .9; }
+    .lv-card:hover .lv-card-link { opacity: 1; }
+
+    .lv-contact { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .lv-contact a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: 12px 20px; font-size: 14px; color: #f4f2f7; transition: background .3s ease, border-color .3s ease, transform .3s ease; }
+    .lv-contact a:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.35); transform: translateY(-2px); }
+
+    footer { position: relative; z-index: 10; border-top: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.015); }
+    footer .fwrap { width: min(760px, calc(100% - 44px)); margin: 0 auto; padding: 34px 0 50px; display: flex; gap: 18px; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #c9c3cf; font-size: 14px; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: .6; }
+    footer nav a:hover { opacity: .6; }
+  </style>
+</head>
+<body>
+  <canvas id="petalCanvas"></canvas>
+
+  <header>
+    <a href="/" aria-label="Higan Studio Startseite"><img src="/assets/higan-logo-white-trim.png" alt="Higan Studio"></a>
+    <nav aria-label="Hauptnavigation">
+      <a href="/#services">Leistungen</a>
+      <a href="/#about">Über uns</a>
+      <a href="/#contact">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <span class="page-label">Portfolio · Über mich</span>
+    <h1>Levi Zimmermann</h1>
+    <span class="lv-role">Gründer &amp; Lead Developer — Higan Studio</span>
+
+    <p class="lv-lede">Ich entwerfe und baue digitale Produkte, die tatsächlich jemandem gehören — von der Oberfläche bis zur Infrastruktur. Als Gründer von Higan Studio arbeite ich mit Menschen zusammen, die schnelle, elegante Websites, eigene Commerce-Systeme und Automatisierungen brauchen, ohne sich an teure SaaS-Baukästen zu binden.</p>
+
+    <p>Mein Ansatz ist ruhig und langfristig gedacht: sauberer Code, self-hosted wo es Sinn ergibt, offene Standards statt Vendor Lock-in. Ob eine Marke ihren ersten Auftritt braucht oder ein bestehendes Produkt skalieren soll — ich begleite den ganzen Weg, von der ersten Skizze bis zum laufenden Betrieb.</p>
+
+    <div class="divider"></div>
+
+    <h2>Was ich mache</h2>
+    <ul class="lv-skills">
+      <li>Web Design</li>
+      <li>Frontend &amp; Fullstack</li>
+      <li>Self-hosted Commerce</li>
+      <li>Desktop &amp; Mobile Apps</li>
+      <li>UX / Prototyping</li>
+      <li>Motion Design</li>
+      <li>API-Entwicklung</li>
+      <li>KI-Agenten &amp; LLM</li>
+      <li>Workflow-Automation</li>
+      <li>Infrastruktur &amp; DevOps</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <h2>Ausgewählte Arbeiten</h2>
+    <div class="lv-work">
+      <a class="lv-card" href="https://higan.studio" target="_blank" rel="noopener">
+        <div class="lv-card-top"><span class="lv-card-name">Higan Studio</span><span class="lv-card-meta">Studio · Commerce</span></div>
+        <p class="lv-card-desc">Mein eigenes Digitalstudio und Shop — komplett self-hosted auf Basis von Saleor, mit eigener Infrastruktur und maßgeschneidertem Storefront.</p>
+        <span class="lv-card-link">higan.studio →</span>
+      </a>
+      <a class="lv-card" href="https://docklys.com" target="_blank" rel="noopener">
+        <div class="lv-card-top"><span class="lv-card-name">Docklys</span><span class="lv-card-meta">Desktop · Marketplace</span></div>
+        <p class="lv-card-desc">Eine Desktop-App und ein Marktplatz für Anwendungen — Produktdesign, Storefront und die Systeme, die den Verkauf tragen.</p>
+        <span class="lv-card-link">docklys.com →</span>
+      </a>
+      <a class="lv-card" href="https://circuit.dedyn.io" target="_blank" rel="noopener">
+        <div class="lv-card-top"><span class="lv-card-name">Circuit</span><span class="lv-card-meta">Band · Website</span></div>
+        <p class="lv-card-desc">Auftritt für eine Band — atmosphärisches Design, das die Identität der Musik in eine schnelle, eigenständige Website übersetzt.</p>
+        <span class="lv-card-link">circuit.dedyn.io →</span>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <h2>Kontakt</h2>
+    <p>Ein Projekt im Kopf, oder einfach eine Idee zum Besprechen? Ich freue mich, von dir zu hören.</p>
+    <div class="lv-contact">
+      <a href="mailto:contact@higan.studio">✉ contact@higan.studio</a>
+      <a href="/#contact">Termin buchen →</a>
+      <a href="/">Higan Studio Website →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="fwrap">
+      <p style="margin:0">Higan Studio · Digitale Produkte, Design &amp; Automatisierung</p>
+      <nav aria-label="Rechtliches">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="/tos/">AGB</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+(function(){
+  const cv=document.getElementById('petalCanvas'); if(!cv) return;
+    const ctx=cv.getContext('2d');
+    let w,h,dpr;
+    const resize=()=>{ dpr=Math.min(devicePixelRatio||1,2); w=cv.width=innerWidth*dpr; h=cv.height=innerHeight*dpr; };
+    resize(); addEventListener('resize',resize);
+    const mouse={x:-9999,y:-9999,t:-9999,vx:0,vy:0};
+    addEventListener('pointermove',e=>{
+      const rawX=e.clientX*dpr, rawY=e.clientY*dpr;
+      const dx=rawX-mouse.x, dy=rawY-mouse.y;
+      mouse.vx = mouse.vx*0.7 + dx*0.3; mouse.vy = mouse.vy*0.7 + dy*0.3;
+      mouse.x=rawX; mouse.y=rawY; mouse.t=performance.now();
+    });
+    const N=20, P=[];
+    for(let i=0;i<N;i++){ P.push({
+      x:Math.random()*w*0.6, y:Math.random()*h*1.5-h*0.5,
+      s:14+Math.random()*13, vx:0.15+Math.random()*0.25, vy:0.3+Math.random()*0.3,
+      rot:Math.random()*6.28, spin:(Math.random()-.5)*0.007,
+      flut:Math.random()*6.28, flutSpd:0.012+Math.random()*0.018, phase:Math.random()*6.28,
+      tint:Math.random()*0.12,
+      kind:Math.random()<0.78?'petal':'stem', curl:Math.random()<0.5?-1:1,
+      dark:0, darkRate:0.02+Math.random()*0.035,
+      len:0.85+Math.random()*0.45, bend:0.55+Math.random()*1.15, wid:0.55+Math.random()*0.35,
+      waveAmp:0.55+Math.random()*1.1, waveFreq:4+Math.floor(Math.random()*4), tipCurl:Math.pow(Math.random(),1.5)*1.15
+    }); }
+    const petal=(ctx,s,tint,dark,kind,curl,shp)=>{
+      shp=shp||{len:1,bend:1,wid:1,waveAmp:1,waveFreq:6,tipCurl:0};
+      const g=ctx.createLinearGradient(0,-s,0,s*0.4);
+      let stroke, fillDim;
+      if(dark){
+        g.addColorStop(0,'rgba(6,6,8,0.92)');
+        g.addColorStop(0.55,'rgba(22,20,26,0.95)');
+        g.addColorStop(1,'rgba(2,2,4,0.5)');
+        stroke='rgba(255,255,255,0.22)'; fillDim='rgba(15,14,17,0.9)';
+      } else {
+        g.addColorStop(0,'rgba(255,'+(255-tint*40)+','+(255-tint*30)+',0.92)');
+        g.addColorStop(0.55,'rgba(255,'+(252-tint*30)+','+(253-tint*20)+',0.97)');
+        g.addColorStop(1,'rgba(240,'+(232-tint*30)+','+(240-tint*20)+',0.45)');
+        stroke='rgba(210,190,215,0.45)'; fillDim='rgba(255,255,255,0.85)';
+      }
+      if(kind==='stem'){
+        // spider-lily stamen: a long sweeping filament, gently wavy and organic
+        const {len, bend, waveAmp} = shp;
+        const baseL = s * 0.95 * len; // slightly shorter overall length
+        
+        const p0 = [0, baseL];
+        const p1 = [curl * s * 0.25 * bend, s * 0.2];
+        const p2 = [curl * s * 0.6 * bend, -s * 0.5 * len];
+        const p3 = [curl * s * 0.4 * bend, -s * 1.15 * len];
+        
+        const bez=(p0,p1,p2,p3,tt)=>{ const m=1-tt,a=m*m*m,b=3*m*m*tt,c=3*m*tt*tt,d=tt*tt*tt;
+          return [a*p0[0]+b*p1[0]+c*p2[0]+d*p3[0], a*p0[1]+b*p1[1]+c*p2[1]+d*p3[1]]; };
+          
+        const Ns = 20; 
+        const spinePts = [];
+        for(let i=0; i<=Ns; i++) {
+          const tt = i / Ns;
+          const [bx, by] = bez(p0, p1, p2, p3, tt);
+          
+          let nx = 1, ny = 0;
+          if (tt > 0.01 && tt < 0.99) {
+             const prev = bez(p0,p1,p2,p3,tt - 0.01);
+             const dx = bx - prev[0], dy = by - prev[1];
+             const dl = Math.hypot(dx, dy) || 1;
+             nx = -(dy/dl); ny = dx/dl;
+          }
+          // gentle organic waviness - much reduced (only 1 or 2 bends, tiny amplitude)
+          const env = Math.sin(tt * Math.PI); 
+          const ripple = Math.sin(tt * Math.PI * 2.5) * s * 0.015 * waveAmp * env;
+          spinePts.push([bx + nx * ripple, by + ny * ripple]);
+        }
+        
+        // Draw the main filament (stamen)
+        ctx.strokeStyle = fillDim;
+        ctx.lineWidth = Math.max(0.5, s * 0.03); // made a bit thinner overall
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(spinePts[0][0], spinePts[0][1]);
+        for(let i=1; i<=Ns; i++) ctx.lineTo(spinePts[i][0], spinePts[i][1]);
+        ctx.stroke();
+        
+        // Add subtle highlight line for realism
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = Math.max(0.2, s * 0.01);
+        ctx.beginPath();
+        ctx.moveTo(spinePts[0][0], spinePts[0][1]);
+        for(let i=1; i<=Ns; i++) ctx.lineTo(spinePts[i][0], spinePts[i][1]);
+        ctx.stroke();
+
+        // The anther (dot on top) - angled, organic, pill-like
+        const lp = spinePts[Ns], pp = spinePts[Ns-1];
+        const angle = Math.atan2(lp[1] - pp[1], lp[0] - pp[0]) + Math.PI/2;
+        
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.save();
+        ctx.translate(lp[0], lp[1]);
+        ctx.rotate(angle);
+        // anther shape: much smaller dot
+        ctx.ellipse(0, -s*0.03, s*0.05, s*0.09, 0, 0, Math.PI*2);
+        ctx.fill();
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+        ctx.restore();
+        
+        return;
+      }
+      // spider-lily petal: clean slender curved blade built from a single spine + tapering
+      // half-width, so the outline always closes cleanly (no crossing/lumpy segments)
+      const {len,bend,wid,waveAmp,waveFreq,tipCurl=0}=shp;
+      const bez=(p0,p1,p2,p3,tt)=>{ const m=1-tt,a=m*m*m,b=3*m*m*tt,c=3*m*tt*tt,d=tt*tt*tt;
+        return [a*p0[0]+b*p1[0]+c*p2[0]+d*p3[0], a*p0[1]+b*p1[1]+c*p2[1]+d*p3[1]]; };
+      const p0=[0,s*len], p1=[curl*s*0.28*bend,s*len*0.35], p2=[curl*s*0.5*bend,-s*len*0.5], p3=[curl*s*0.22*bend,-s*len*1.08];
+      // Curl the tip as a SMOOTH arc: walk the base spine and rotate each successive step by a
+      // gently-accumulating angle in the tip zone (integrated curvature) — a crook, never an L-kink.
+      const NpC=28, SP=[]; {
+        const base=[]; for(let i=0;i<=NpC;i++) base.push(bez(p0,p1,p2,p3,i/NpC));
+        SP.push(base[0].slice()); let ang=0;
+        for(let i=1;i<=NpC;i++){
+          const tt=i/NpC;
+          let dx=base[i][0]-base[i-1][0], dy=base[i][1]-base[i-1][1];
+          const tipT=Math.max(0,(tt-0.5)/0.5);
+          ang += -curl*Math.pow(tipT,1.7)*tipCurl*0.55;   // radians added per step, ramps toward tip
+          const ca=Math.cos(ang), sa=Math.sin(ang);
+          SP.push([SP[i-1][0]+dx*ca-dy*sa, SP[i-1][1]+dx*sa+dy*ca]);
+        }
+      }
+      const spine=tt=>{
+        const f=Math.min(Math.max(tt,0),1)*NpC, i=Math.floor(f), fr=f-i;
+        if(i>=NpC) return SP[NpC];
+        const a=SP[i], b=SP[i+1]; return [a[0]+(b[0]-a[0])*fr, a[1]+(b[1]-a[1])*fr];
+      };
+      const hwMax=s*0.3*wid;
+      const halfW=tt=>{
+        let hv=hwMax*Math.pow(Math.sin(Math.PI*Math.min(Math.max(tt,0.02),0.99)),0.62);
+        if(tt>0.82) hv*=1-((tt-0.82)/0.18)*0.85; // taper to a fine tip
+        if(tt<0.12) hv*=0.55+(tt/0.12)*0.45;     // narrower rounded base
+        return Math.max(hv,s*0.012);
+      };
+      const Np=26, pts=[];
+      for(let i=0;i<=Np;i++){
+        const tt=i/Np, [x,y]=spine(tt);
+        const [xa,ya]=spine(Math.max(0,tt-0.01)), [xb,yb]=spine(Math.min(1,tt+0.01));
+        let nx=-(yb-ya), ny=(xb-xa); const nl=Math.hypot(nx,ny)||1; nx/=nl; ny/=nl;
+        const env=Math.sin(tt*Math.PI);
+        const ripple=Math.sin(tt*waveFreq*Math.PI*2)*hwMax*0.14*waveAmp*env;
+        pts.push([x,y,nx,ny,halfW(tt)+ripple]);
+      }
+      ctx.fillStyle=g;
+      ctx.beginPath();
+      for(let i=0;i<=Np;i++){ const [x,y,nx,ny,hw]=pts[i]; const px=x+nx*hw,py=y+ny*hw; if(i===0)ctx.moveTo(px,py); else ctx.lineTo(px,py); }
+      for(let i=Np;i>=0;i--){ const [x,y,nx,ny,hw]=pts[i]; ctx.lineTo(x-nx*hw,y-ny*hw); }
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle=stroke; ctx.lineWidth=0.6;
+      ctx.stroke();
+      // subtle volume: one soft highlight running down the spine so the blade reads as gently folded
+      ctx.save();
+      ctx.globalCompositeOperation='overlay';
+      ctx.beginPath();
+      for(let i=1;i<Np;i++){ const [x,y]=pts[i]; if(i===1)ctx.moveTo(x,y); else ctx.lineTo(x,y); }
+      ctx.strokeStyle='rgba(255,255,255,0.4)';
+      ctx.lineWidth=Math.max(1,s*0.14*wid);
+      ctx.lineCap='round';
+      ctx.stroke();
+      ctx.restore();
+    };
+    // periodically rescan DOM for the nearest visible Discovery-Call button + light/dark zones (cheap, throttled).
+    // Dark elements (e.g. black buttons sitting inside a light card) are scanned AFTER light ones and
+    // take priority, so a petal passing over a black button on a white card correctly turns light, not dark.
+    let ctaTarget=null, lightRects=[], darkRects=[];
+    const rescan=()=>{
+      const btns=[...document.querySelectorAll('.hg-cta')];
+      let best=null,bestD=Infinity;
+      const cx=w/(2*dpr),cy=h/(2*dpr);
+      for(const b of btns){
+        const r=b.getBoundingClientRect();
+        if(r.bottom<0||r.top>innerHeight||r.width===0) continue;
+        const bx=r.left+r.width/2, by=r.top+r.height/2;
+        const d=Math.hypot(bx-cx,by-cy);
+        if(d<bestD){ bestD=d; best={x:bx,y:by,w:r.width,h:r.height}; }
+      }
+      ctaTarget=best;
+      lightRects=[...document.querySelectorAll('[data-hg-light]')].map(el=>el.getBoundingClientRect()).filter(r=>r.bottom>=-40&&r.top<=innerHeight+40&&r.width>0);
+      darkRects=[...document.querySelectorAll('[data-hg-dark]')].map(el=>el.getBoundingClientRect()).filter(r=>r.bottom>=-40&&r.top<=innerHeight+40&&r.width>0);
+    };
+    rescan();
+    setInterval(rescan,400);
+    // smooth, feathered "am I over a light area" test — no hard mask, no per-frame canvas compositing
+    const FEATHER=26;
+    const darkTargetAt=(px,py)=>{
+      // dark (black) elements win outright — a petal directly over one must go light/white,
+      // even if that element sits nested inside a larger light card
+      for(const r of darkRects){
+        if(px>=r.left-4&&px<=r.right+4&&py>=r.top-4&&py<=r.bottom+4) return 0;
+      }
+      let best=0;
+      for(const r of lightRects){
+        const dx=Math.max(r.left-px,0,px-r.right), dy=Math.max(r.top-py,0,py-r.bottom);
+        const dist=Math.hypot(dx,dy);
+        const v=dist<=0?1:Math.max(0,1-dist/FEATHER);
+        if(v>best) best=v;
+      }
+      return best;
+    };
+    let t=0;
+    const draw=()=>{
+      t++; ctx.clearRect(0,0,w,h);
+      const windX=Math.sin(t*0.0006)*0.55+Math.sin(t*0.00021+2.1)*0.3;
+      const windY=0.5+Math.sin(t*0.00037+1.3)*0.2;
+      const since=performance.now()-mouse.t;
+      for(const p of P){
+        const turb=Math.sin(t*0.0022+p.phase)*0.4;
+        // simulated air drag: any excess speed (from gusts) bleeds off every frame, realistically
+        p.vx*=0.965; p.vy*=0.965;
+        p.vx+=((windX+turb)-p.vx)*0.02;
+        p.vy+=(windY-p.vy)*0.02;
+        if(since<1400){
+          const dx=p.x-mouse.x,dy=p.y-mouse.y,dist=Math.hypot(dx,dy)||1,rad=185*dpr;
+          if(dist<rad){
+            const f=1-dist/rad; const tx=-dy/dist,ty=dx/dist;
+            const speed=Math.hypot(mouse.vx,mouse.vy);
+            const gust=0.22+Math.min(speed*0.16,4.2); // the faster the mouse moves, the more intense the push
+            p.vx+=tx*f*gust*0.075; p.vy+=ty*f*gust*0.05+dy/dist*f*0.013;
+          }
+        }
+        if(ctaTarget){
+          // subtle steering only — no homing/orbiting, petals should still fall naturally,
+          // just happen to drift past the button's column more often
+          const targetX=ctaTarget.x*dpr;
+          const yDist=Math.abs(ctaTarget.y*dpr-p.y);
+          const influence=Math.max(0,1-yDist/(520*dpr));
+          if(influence>0){
+            const dx=targetX-p.x;
+            p.vx+=Math.sign(dx)*Math.min(Math.abs(dx)/(340*dpr),1)*influence*0.018;
+          }
+        }
+        p.x+=p.vx*dpr; p.y+=p.vy*dpr; p.rot+=p.spin+p.vx*0.008; p.flut+=p.flutSpd;
+        if(p.y>h+40){ p.y=-40-Math.random()*80; p.x=Math.random()*w*0.55-40; }
+        if(p.x>w+40) p.x=-40; if(p.x<-60) p.x=w+30;
+        const fl=Math.cos(p.flut); // gentle flutter — stays broadside, no dramatic edge-on flip
+        const scaleX=0.7+0.3*Math.abs(fl);
+        // smoothly fade toward light/dark based on what's behind the petal right now — each
+        // particle eases at its own slightly different rate, so they never all flip together
+        const target=darkTargetAt(p.x/dpr,p.y/dpr);
+        p.dark += (target-p.dark)*p.darkRate;
+        // base pass: the light/white petal, always drawn
+        ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.scale(scaleX,1);
+        ctx.shadowColor='rgba(0,0,0,0.25)'; ctx.shadowBlur=4*dpr; ctx.shadowOffsetY=2*dpr;
+        petal(ctx,p.s*dpr,p.tint,false,p.kind,p.curl,p);
+        ctx.restore();
+        // dark pass blended in on top at partial alpha — a soft cross-fade, not a hard swap
+        if(p.dark>0.01){
+          ctx.save(); ctx.globalAlpha=Math.min(1,p.dark);
+          ctx.translate(p.x,p.y); ctx.rotate(p.rot); ctx.scale(scaleX,1);
+          ctx.shadowColor='rgba(0,0,0,0.18)'; ctx.shadowBlur=3*dpr; ctx.shadowOffsetY=1.5*dpr;
+          petal(ctx,p.s*dpr,p.tint,true,p.kind,p.curl,p);
+          ctx.restore();
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+    draw();
+})();
+
+  </script>
+</body>
+</html>
