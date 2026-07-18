@@ -359,7 +359,7 @@
       <div>
         <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.4;margin:0 0 16px">{{ t.getInTouch }}</p>
         <span class="hg-navlink" style="opacity:.8;font-weight:400;font-size:15px;cursor:pointer;display:block;margin-bottom:10px" onClick="{{ navContact }}">{{ t.contact }} →</span>
-        <a href="/levi/" class="hg-navlink" style="opacity:.8;font-weight:400;font-size:15px;display:block;margin-bottom:10px">Levi Zimmermann →</a>
+        <a href="/levi/?ref=site" class="hg-navlink" style="opacity:.8;font-weight:400;font-size:15px;display:block;margin-bottom:10px">Levi Zimmermann →</a>
         <a href="mailto:contact&#64;higan.studio" class="hg-navlink" style="opacity:.6;font-weight:300;font-size:14px">contact&#64;higan.studio</a>
       </div>
       <div>
