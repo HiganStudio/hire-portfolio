@@ -459,7 +459,7 @@ class Component extends DCLogic {
     this.mountSlots();
     this.onScroll();
     this.startScrollPrompt(180);
-    this._scrollPromptTimer=setInterval(()=>this.startScrollPrompt(),5000);
+    this._scrollPromptTimer=setInterval(()=>this.startScrollPrompt(),8000);
   }
   componentWillUnmount(){ removeEventListener('scroll',this._onScroll); removeEventListener('wheel',this._onScrollIntent); removeEventListener('touchstart',this._onScrollIntent); cancelAnimationFrame(this._raf); cancelAnimationFrame(this._fallRaf); this.cancelScrollPrompt(); clearInterval(this._scrollPromptTimer); }
   slotSig(){ return [this.state.route,this.state.lang,this.state.selectedDay,this.state.selectedTime,this.state.monthOffset].join('|'); }
