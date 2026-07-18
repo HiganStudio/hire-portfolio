@@ -4,13 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Levi Zimmermann — Gründer &amp; Entwickler, Higan Studio</title>
-  <meta name="description" content="Levi Zimmermann — Gründer und Lead Developer von Higan Studio. Web Design, self-hosted Commerce und Produktentwicklung. Ausgewählte Arbeiten und Kontakt.">
+  <meta name="description" content="Levi Zimmermann — Gründer und Lead Developer von Higan Studio. Web Design, self-hosted Commerce und Produktentwicklung. Ausgewählte Arbeiten, Kontakt und Terminbuchung.">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://hire.higan.studio/levi/">
   <meta property="og:title" content="Levi Zimmermann — Gründer &amp; Entwickler, Higan Studio">
   <meta property="og:description" content="Gründer und Lead Developer von Higan Studio. Web Design, self-hosted Commerce und Produktentwicklung.">
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://hire.higan.studio/levi/">
+  <meta property="og:image" content="https://hire.higan.studio/assets/levi-profile.jpg">
   <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/svg+xml" href="/favicon-dark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +21,7 @@
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     html, body { overflow-x: clip; }
     body { font-family: 'Inter', system-ui, sans-serif; background: #0a0a0a; color: #f4f2f7; line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
@@ -27,16 +29,23 @@
 
     #petalCanvas { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 999; }
 
-    header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: rgba(10,10,10,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.06); }
-    header img { height: 36px; width: auto; display: block; }
-    header nav { display: flex; gap: 26px; font-size: 13.5px; }
-    header nav a { opacity: .85; transition: opacity .25s; }
-    header nav a:hover { opacity: .5; }
+    header { position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: rgba(10,10,10,.72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.06); }
+    header img { height: 34px; width: auto; display: block; }
+    header .hnav { display: flex; align-items: center; gap: 24px; font-size: 13.5px; }
+    header .hnav a { opacity: .85; transition: opacity .25s; }
+    header .hnav a:hover { opacity: .5; }
+    .hicon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.18); border-radius: 9px; transition: border-color .25s, background .25s; }
+    .hicon:hover { border-color: rgba(195,166,224,.6); background: rgba(195,166,224,.08); }
+    .hicon svg { width: 16px; height: 16px; fill: #f4f2f7; }
+    #langToggle { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .12em; background: none; border: 1px solid rgba(255,255,255,.18); border-radius: 9px; color: #f4f2f7; padding: 7px 12px; cursor: pointer; transition: border-color .25s, background .25s; }
+    #langToggle:hover { border-color: rgba(195,166,224,.6); background: rgba(195,166,224,.08); }
 
-    main { position: relative; z-index: 10; width: min(760px, calc(100% - 44px)); margin: 0 auto; padding: 150px 0 90px; }
-    .page-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; opacity: .45; margin-bottom: 18px; display: block; }
-    h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; color: #c3a6e0; font-size: clamp(40px, 8vw, 74px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 14px; }
-    .lv-role { font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #c3a6e0; opacity: .85; display: block; margin: 0 0 40px; }
+    main { position: relative; z-index: 10; width: min(760px, calc(100% - 44px)); margin: 0 auto; padding: 140px 0 90px; }
+    .hero { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; }
+    .hero-photo { width: 116px; height: 116px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(195,166,224,.35); box-shadow: 0 14px 40px rgba(0,0,0,.5); }
+    .page-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; opacity: .45; margin-bottom: 12px; display: block; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-style: italic; color: #c3a6e0; font-size: clamp(38px, 7vw, 66px); line-height: 1.04; letter-spacing: -0.02em; margin: 0 0 12px; }
+    .lv-role { font-family: 'Space Mono', monospace; font-size: 12.5px; letter-spacing: .13em; text-transform: uppercase; color: #c3a6e0; opacity: .85; display: block; }
     h2 { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: #c3a6e0; font-size: 30px; margin: 0 0 20px; }
     p { color: #ded9e4; font-weight: 300; margin: 0 0 22px; }
     .lv-lede { font-size: 19px; line-height: 1.75; opacity: .9; }
@@ -59,11 +68,56 @@
     .lv-contact { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
     .lv-contact a { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.15); border-radius: 10px; padding: 12px 20px; font-size: 14px; color: #f4f2f7; transition: background .3s ease, border-color .3s ease, transform .3s ease; }
     .lv-contact a:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.35); transform: translateY(-2px); }
+    .lv-contact a svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ---- booking calendar (light card, like the main page) ---- */
+    .cal-card { display: grid; grid-template-columns: .85fr 1.15fr; background: #fdfdfd; color: #15131a; border-radius: 22px; overflow: hidden; box-shadow: 0 30px 90px rgba(0,0,0,.55); margin-top: 8px; }
+    .cal-host { padding: 30px 28px; border-right: 1px solid rgba(0,0,0,.08); display: flex; flex-direction: column; }
+    .cal-avatar { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 14px; }
+    .cal-host-name { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 21px; margin: 0 0 2px; color: #15131a; }
+    .cal-host-role { font-size: 12.5px; opacity: .55; margin: 0 0 16px; color: #15131a; }
+    .cal-host-note { font-size: 12.5px; line-height: 1.6; opacity: .6; margin: 0 0 16px; color: #15131a; }
+    .cal-host-mail { margin-top: auto; font-family: 'Cormorant Garamond', serif; font-size: 17px; color: #15131a; border-bottom: 1px solid #7c5aa6; width: fit-content; padding-bottom: 2px; }
+    .cal-right { padding: 26px 26px 28px; }
+    .cal-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+    .cal-nav button { background: none; border: none; font-size: 16px; color: #15131a; cursor: pointer; padding: 4px 8px; }
+    .cal-nav button[disabled] { opacity: .25; cursor: default; }
+    .cal-nav span { font-weight: 600; font-size: 13.5px; }
+    .cal-wds { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; margin-bottom: 4px; }
+    .cal-wd { text-align: center; font-size: 10.5px; opacity: .42; padding: 6px 0; }
+    .cal-days { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+    .cal-day { width: 100%; aspect-ratio: 1; display: inline-flex; align-items: center; justify-content: center; border: none; border-radius: 50%; background: transparent; color: #15131a; font: inherit; font-size: 13px; cursor: pointer; }
+    .cal-day[disabled] { color: rgba(21,19,26,.25); cursor: default; }
+    .cal-day:not([disabled]):hover { background: rgba(124,90,166,.12); }
+    .cal-day.sel { background: #7c5aa6; color: #fff; font-weight: 600; }
+    .cal-slots { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .cal-slot { padding: 9px 15px; border-radius: 999px; font: inherit; font-size: 13px; cursor: pointer; border: 1px solid rgba(21,19,26,.16); background: transparent; color: #15131a; }
+    .cal-slot.sel { background: #7c5aa6; border-color: #7c5aa6; color: #fff; }
+    .cal-form { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; }
+    .cal-form input, .cal-form textarea { width: 100%; border: 1px solid rgba(21,19,26,.16); border-radius: 10px; padding: 11px 14px; font: inherit; font-size: 14px; color: #15131a; background: #fff; outline: none; transition: border-color .2s; }
+    .cal-form input:focus, .cal-form textarea:focus { border-color: #7c5aa6; }
+    .cal-form textarea { resize: vertical; min-height: 64px; }
+    .cal-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 4px; }
+    #bkChosen { font-size: 12.5px; opacity: .55; }
+    #bkSubmit { flex-shrink: 0; background: #15131a; color: #fff; border: none; border-radius: 10px; padding: 12px 20px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; transition: background .25s; }
+    #bkSubmit:hover { background: #2a2733; }
+    #bkSubmit[disabled] { opacity: .5; cursor: default; }
+    #bkStatus { font-size: 13px; margin: 6px 0 0; min-height: 1.2em; }
+    #bkStatus.ok { color: #2e7d5b; }
+    #bkStatus.err { color: #b5453a; }
 
     footer { position: relative; z-index: 10; border-top: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.015); }
     footer .fwrap { width: min(760px, calc(100% - 44px)); margin: 0 auto; padding: 34px 0 50px; display: flex; gap: 18px; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #c9c3cf; font-size: 14px; }
     footer nav { display: flex; flex-wrap: wrap; gap: 16px; font-family: 'Space Mono', monospace; font-size: 12px; opacity: .6; }
     footer nav a:hover { opacity: .6; }
+
+    @media (max-width: 620px) {
+      .hero { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .cal-card { grid-template-columns: 1fr; }
+      .cal-host { border-right: none; border-bottom: 1px solid rgba(0,0,0,.08); }
+      header .hnav { gap: 14px; }
+      header .hnav a[data-de] { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -71,25 +125,32 @@
 
   <header>
     <a href="/" aria-label="Higan Studio Startseite"><img src="/assets/higan-logo-white-trim.png" alt="Higan Studio"></a>
-    <nav aria-label="Hauptnavigation">
-      <a href="/#services">Leistungen</a>
-      <a href="/#about">Über uns</a>
-      <a href="/#contact">Kontakt</a>
-    </nav>
+    <div class="hnav">
+      <a href="/#services" data-de="Leistungen" data-en="Services">Leistungen</a>
+      <a href="/#about" data-de="Über uns" data-en="About">Über uns</a>
+      <a href="/#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
+      <a class="hicon" href="https://www.linkedin.com/in/levi-nanjo-zimmermann-b98a81421/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.06c.63-1.2 2.18-2.47 4.49-2.47C21.4 7.73 24 10.2 24 15.06V24h-5v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V24h-5V8z"/></svg></a>
+      <button id="langToggle" type="button" aria-label="Language">EN</button>
+    </div>
   </header>
 
   <main>
-    <span class="page-label">Portfolio · Über mich</span>
-    <h1>Levi Zimmermann</h1>
-    <span class="lv-role">Gründer &amp; Lead Developer — Higan Studio</span>
+    <div class="hero">
+      <img class="hero-photo" src="/assets/levi-profile.jpg" alt="Levi Zimmermann">
+      <div>
+        <span class="page-label" data-de="Portfolio · Über mich" data-en="Portfolio · About me">Portfolio · Über mich</span>
+        <h1>Levi Zimmermann</h1>
+        <span class="lv-role" data-de="Gründer &amp; Lead Developer — Higan Studio" data-en="Founder &amp; Lead Developer — Higan Studio">Gründer &amp; Lead Developer — Higan Studio</span>
+      </div>
+    </div>
 
-    <p class="lv-lede">Ich entwerfe und baue digitale Produkte, die tatsächlich jemandem gehören — von der Oberfläche bis zur Infrastruktur. Als Gründer von Higan Studio arbeite ich mit Menschen zusammen, die schnelle, elegante Websites, eigene Commerce-Systeme und Automatisierungen brauchen, ohne sich an teure SaaS-Baukästen zu binden.</p>
+    <p class="lv-lede" data-de="Ich entwerfe und baue digitale Produkte, die tatsächlich jemandem gehören — von der Oberfläche bis zur Infrastruktur. Als Gründer von Higan Studio arbeite ich mit Menschen zusammen, die schnelle, elegante Websites, eigene Commerce-Systeme und Automatisierungen brauchen, ohne sich an teure SaaS-Baukästen zu binden." data-en="I design and build digital products that actually belong to someone — from the interface all the way down to the infrastructure. As the founder of Higan Studio, I work with people who need fast, elegant websites, their own commerce systems and automation, without being locked into expensive SaaS platforms.">Ich entwerfe und baue digitale Produkte, die tatsächlich jemandem gehören — von der Oberfläche bis zur Infrastruktur. Als Gründer von Higan Studio arbeite ich mit Menschen zusammen, die schnelle, elegante Websites, eigene Commerce-Systeme und Automatisierungen brauchen, ohne sich an teure SaaS-Baukästen zu binden.</p>
 
-    <p>Mein Ansatz ist ruhig und langfristig gedacht: sauberer Code, self-hosted wo es Sinn ergibt, offene Standards statt Vendor Lock-in. Ob eine Marke ihren ersten Auftritt braucht oder ein bestehendes Produkt skalieren soll — ich begleite den ganzen Weg, von der ersten Skizze bis zum laufenden Betrieb.</p>
+    <p data-de="Mein Ansatz ist ruhig und langfristig gedacht: sauberer Code, self-hosted wo es Sinn ergibt, offene Standards statt Vendor Lock-in. Ob eine Marke ihren ersten Auftritt braucht oder ein bestehendes Produkt skalieren soll — ich begleite den ganzen Weg, von der ersten Skizze bis zum laufenden Betrieb." data-en="My approach is calm and built to last: clean code, self-hosted where it makes sense, open standards over vendor lock-in. Whether a brand needs its first presence or an existing product needs to scale, I stay involved for the whole journey — from the first sketch to running it in production.">Mein Ansatz ist ruhig und langfristig gedacht: sauberer Code, self-hosted wo es Sinn ergibt, offene Standards statt Vendor Lock-in. Ob eine Marke ihren ersten Auftritt braucht oder ein bestehendes Produkt skalieren soll — ich begleite den ganzen Weg, von der ersten Skizze bis zum laufenden Betrieb.</p>
 
     <div class="divider"></div>
 
-    <h2>Was ich mache</h2>
+    <h2 data-de="Was ich mache" data-en="What I do">Was ich mache</h2>
     <ul class="lv-skills">
       <li>Web Design</li>
       <li>Frontend &amp; Fullstack</li>
@@ -97,47 +158,76 @@
       <li>Desktop &amp; Mobile Apps</li>
       <li>UX / Prototyping</li>
       <li>Motion Design</li>
-      <li>API-Entwicklung</li>
-      <li>KI-Agenten &amp; LLM</li>
-      <li>Workflow-Automation</li>
-      <li>Infrastruktur &amp; DevOps</li>
+      <li data-de="API-Entwicklung" data-en="API Development">API-Entwicklung</li>
+      <li data-de="KI-Agenten &amp; LLM" data-en="AI Agents &amp; LLM">KI-Agenten &amp; LLM</li>
+      <li data-de="Workflow-Automation" data-en="Workflow Automation">Workflow-Automation</li>
+      <li data-de="Infrastruktur &amp; DevOps" data-en="Infrastructure &amp; DevOps">Infrastruktur &amp; DevOps</li>
     </ul>
 
     <div class="divider"></div>
 
-    <h2>Ausgewählte Arbeiten</h2>
+    <h2 data-de="Ausgewählte Arbeiten" data-en="Selected work">Ausgewählte Arbeiten</h2>
     <div class="lv-work">
       <a class="lv-card" href="https://higan.studio" target="_blank" rel="noopener">
         <div class="lv-card-top"><span class="lv-card-name">Higan Studio</span><span class="lv-card-meta">Studio · Commerce</span></div>
-        <p class="lv-card-desc">Mein eigenes Digitalstudio und Shop — komplett self-hosted auf Basis von Saleor, mit eigener Infrastruktur und maßgeschneidertem Storefront.</p>
+        <p class="lv-card-desc" data-de="Mein eigenes Digitalstudio und Shop — komplett self-hosted auf Basis von Saleor, mit eigener Infrastruktur und maßgeschneidertem Storefront." data-en="My own digital studio and shop — fully self-hosted on Saleor, with custom infrastructure and a bespoke storefront.">Mein eigenes Digitalstudio und Shop — komplett self-hosted auf Basis von Saleor, mit eigener Infrastruktur und maßgeschneidertem Storefront.</p>
         <span class="lv-card-link">higan.studio →</span>
       </a>
       <a class="lv-card" href="https://docklys.com" target="_blank" rel="noopener">
         <div class="lv-card-top"><span class="lv-card-name">Docklys</span><span class="lv-card-meta">Desktop · Marketplace</span></div>
-        <p class="lv-card-desc">Eine Desktop-App und ein Marktplatz für Anwendungen — Produktdesign, Storefront und die Systeme, die den Verkauf tragen.</p>
+        <p class="lv-card-desc" data-de="Eine Desktop-App und ein Marktplatz für Anwendungen — Produktdesign, Storefront und die Systeme, die den Verkauf tragen." data-en="A desktop app and a marketplace for applications — product design, storefront, and the systems that power the sales side.">Eine Desktop-App und ein Marktplatz für Anwendungen — Produktdesign, Storefront und die Systeme, die den Verkauf tragen.</p>
         <span class="lv-card-link">docklys.com →</span>
       </a>
-      <a class="lv-card" href="https://circuit.dedyn.io" target="_blank" rel="noopener">
+      <a class="lv-card" href="https://circuit.qwqc.de" target="_blank" rel="noopener">
         <div class="lv-card-top"><span class="lv-card-name">Circuit</span><span class="lv-card-meta">Band · Website</span></div>
-        <p class="lv-card-desc">Auftritt für eine Band — atmosphärisches Design, das die Identität der Musik in eine schnelle, eigenständige Website übersetzt.</p>
-        <span class="lv-card-link">circuit.dedyn.io →</span>
+        <p class="lv-card-desc" data-de="Auftritt für eine Band — atmosphärisches Design, das die Identität der Musik in eine schnelle, eigenständige Website übersetzt." data-en="A presence for a band — atmospheric design that translates the identity of the music into a fast, self-contained website.">Auftritt für eine Band — atmosphärisches Design, das die Identität der Musik in eine schnelle, eigenständige Website übersetzt.</p>
+        <span class="lv-card-link">circuit.qwqc.de →</span>
       </a>
     </div>
 
     <div class="divider"></div>
 
-    <h2>Kontakt</h2>
-    <p>Ein Projekt im Kopf, oder einfach eine Idee zum Besprechen? Ich freue mich, von dir zu hören.</p>
+    <h2 data-de="Kontakt" data-en="Contact">Kontakt</h2>
+    <p data-de="Ein Projekt im Kopf, oder einfach eine Idee zum Besprechen? Ich freue mich, von dir zu hören — oder buch dir unten direkt einen Termin bei mir." data-en="Have a project in mind, or just an idea to talk through? I'd love to hear from you — or book a slot with me directly below.">Ein Projekt im Kopf, oder einfach eine Idee zum Besprechen? Ich freue mich, von dir zu hören — oder buch dir unten direkt einen Termin bei mir.</p>
     <div class="lv-contact">
-      <a href="mailto:contact@higan.studio">✉ contact@higan.studio</a>
-      <a href="/#contact">Termin buchen →</a>
-      <a href="/">Higan Studio Website →</a>
+      <a href="mailto:levi@higan.studio">✉ levi@higan.studio</a>
+      <a href="#booking" data-de="Termin buchen →" data-en="Book a call →">Termin buchen →</a>
+      <a href="https://www.linkedin.com/in/levi-nanjo-zimmermann-b98a81421/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.06c.63-1.2 2.18-2.47 4.49-2.47C21.4 7.73 24 10.2 24 15.06V24h-5v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V24h-5V8z"/></svg><span data-de="LinkedIn" data-en="LinkedIn">LinkedIn</span></a>
     </div>
+
+    <div class="divider"></div>
+
+    <section id="booking">
+      <h2 data-de="Termin buchen — direkt bei mir" data-en="Book a call — directly with me">Termin buchen — direkt bei mir</h2>
+      <p data-de="30 Minuten, unverbindlich. Wähl dir einen Tag und eine Uhrzeit — die Anfrage landet direkt in meinem Postfach." data-en="30 minutes, no strings attached. Pick a day and a time — the request lands straight in my inbox.">30 Minuten, unverbindlich. Wähl dir einen Tag und eine Uhrzeit — die Anfrage landet direkt in meinem Postfach.</p>
+      <div class="cal-card">
+        <div class="cal-host">
+          <img class="cal-avatar" src="/assets/levi-profile.jpg" alt="Levi Zimmermann">
+          <p class="cal-host-name">Levi Zimmermann</p>
+          <p class="cal-host-role" data-de="Discovery-Call · 30 Min · Video" data-en="Discovery call · 30 min · Video">Discovery-Call · 30 Min · Video</p>
+          <p class="cal-host-note" data-de="Kurzes Kennenlernen: dein Vorhaben, offene Fragen und wie ich helfen kann." data-en="A quick intro: your idea, open questions, and how I can help.">Kurzes Kennenlernen: dein Vorhaben, offene Fragen und wie ich helfen kann.</p>
+          <a class="cal-host-mail" href="mailto:levi@higan.studio">levi@higan.studio</a>
+        </div>
+        <div class="cal-right">
+          <div id="calGrid"></div>
+          <div class="cal-form">
+            <input id="bkName" type="text" data-de-ph="Dein Name" data-en-ph="Your name" autocomplete="name">
+            <input id="bkEmail" type="email" data-de-ph="Deine E-Mail" data-en-ph="Your email" autocomplete="email">
+            <textarea id="bkNote" data-de-ph="Worum geht’s? (kurze Notiz)" data-en-ph="What’s it about? (short note)"></textarea>
+            <div class="cal-foot">
+              <span id="bkChosen"></span>
+              <button id="bkSubmit" type="button">Termin anfragen</button>
+            </div>
+            <p id="bkStatus"></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="fwrap">
-      <p style="margin:0">Higan Studio · Digitale Produkte, Design &amp; Automatisierung</p>
+      <p style="margin:0" data-de="Higan Studio · Digitale Produkte, Design &amp; Automatisierung" data-en="Higan Studio · Digital products, design &amp; automation">Higan Studio · Digitale Produkte, Design &amp; Automatisierung</p>
       <nav aria-label="Rechtliches">
         <a href="/impressum/">Impressum</a>
         <a href="/datenschutz/">Datenschutz</a>
@@ -413,6 +503,104 @@
     draw();
 })();
 
+  </script>
+  <script>
+  (function(){
+    var lang = 'de';
+    var CAL = {
+      months: { de:['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+                en:['January','February','March','April','May','June','July','August','September','October','November','December'] },
+      days: { de:['Mo','Di','Mi','Do','Fr','Sa','So'], en:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] },
+      labels: {
+        pickDate:{ de:'Wähle ein Datum', en:'Pick a date' },
+        pickTime:{ de:'Wähle eine Uhrzeit', en:'Pick a time' },
+        selected:{ de:'Ausgewählt', en:'Selected' },
+        book:{ de:'Termin anfragen', en:'Request appointment' },
+        sending:{ de:'Wird gesendet …', en:'Sending …' },
+        ok:{ de:'Danke! Deine Anfrage ist bei Levi gelandet — Antwort folgt in Kürze.', en:'Thanks! Your request reached Levi — I’ll reply shortly.' },
+        err:{ de:'Etwas ist schiefgelaufen. Schreib mir gern direkt an levi@higan.studio.', en:'Something went wrong. Feel free to email me at levi@higan.studio.' },
+        need:{ de:'Bitte Name, gültige E-Mail und einen Tag wählen.', en:'Please enter your name, a valid email and pick a day.' }
+      }
+    };
+    function L(k){ return CAL.labels[k][lang]; }
+
+    var st = { off:0, day:null, time:null };
+    var SLOTS = ['10:00','11:00','14:00','16:00'];
+
+    function md(){
+      var t=new Date(), b=new Date(t.getFullYear(), t.getMonth()+st.off, 1);
+      var y=b.getFullYear(), m=b.getMonth();
+      return { y:y, m:m, firstDow:(new Date(y,m,1).getDay()+6)%7, dim:new Date(y,m+1,0).getDate(), today:t, label:CAL.months[lang][m]+' '+y };
+    }
+    function slotLabel(){
+      if(!st.day) return '';
+      var p=st.day.split('-');
+      return p[2]+'. '+CAL.months[lang][+p[1]]+' '+p[0]+(st.time?' · '+st.time:'');
+    }
+    function updateChosen(){
+      var c=document.getElementById('bkChosen'); if(!c) return;
+      c.textContent = st.day ? (L('selected')+': '+slotLabel()) : (st.day===null ? L('pickDate') : L('pickTime'));
+      if(st.day && !st.time) c.textContent = L('pickTime');
+    }
+    function renderCal(){
+      var grid=document.getElementById('calGrid'); if(!grid) return;
+      var d=md(), cells='';
+      for(var i=0;i<d.firstDow;i++) cells+='<button class="cal-day" style="visibility:hidden"></button>';
+      for(var day=1;day<=d.dim;day++){
+        var dow=new Date(d.y,d.m,day).getDay();
+        var past=st.off===0 && day<d.today.getDate();
+        var we=dow===0||dow===6, dis=past||we;
+        var key=d.y+'-'+d.m+'-'+day, sel=st.day===key;
+        cells+='<button class="cal-day'+(sel?' sel':'')+'" '+(dis?'disabled':'data-day="'+key+'"')+'>'+day+'</button>';
+      }
+      var wd=CAL.days[lang].map(function(x){return '<span class="cal-wd">'+x+'</span>';}).join('');
+      var slots='';
+      if(st.day){ slots='<div class="cal-slots">'+SLOTS.map(function(s){return '<button class="cal-slot'+(st.time===s?' sel':'')+'" data-slot="'+s+'">'+s+'</button>';}).join('')+'</div>'; }
+      grid.innerHTML='<div class="cal-nav"><button data-nav="prev"'+(st.off>0?'':' disabled')+'>←</button><span>'+d.label+'</span><button data-nav="next">→</button></div>'
+        +'<div class="cal-wds">'+wd+'</div><div class="cal-days">'+cells+'</div>'+slots;
+      grid.querySelectorAll('[data-day]').forEach(function(b){ b.onclick=function(){ st.day=b.getAttribute('data-day'); st.time=null; renderCal(); }; });
+      grid.querySelectorAll('[data-slot]').forEach(function(b){ b.onclick=function(){ st.time=b.getAttribute('data-slot'); renderCal(); }; });
+      var pv=grid.querySelector('[data-nav="prev"]'); if(pv) pv.onclick=function(){ if(st.off>0){ st.off--; st.day=null; st.time=null; renderCal(); } };
+      var nx=grid.querySelector('[data-nav="next"]'); if(nx) nx.onclick=function(){ st.off++; st.day=null; st.time=null; renderCal(); };
+      updateChosen();
+    }
+
+    async function submitBooking(){
+      var name=(document.getElementById('bkName').value||'').trim();
+      var email=(document.getElementById('bkEmail').value||'').trim();
+      var note=(document.getElementById('bkNote').value||'').trim();
+      var status=document.getElementById('bkStatus');
+      if(!name || !/^\S+@\S+\.\S+$/.test(email) || !st.day){ status.className='err'; status.textContent=L('need'); return; }
+      var btn=document.getElementById('bkSubmit'); btn.disabled=true; btn.textContent=L('sending');
+      var msg='Gewünschter Termin / Requested slot: '+slotLabel()+'\n\n'+(note||'—');
+      try {
+        var r=await fetch('/api/booking', { method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({ type:'availability_request', name:name, email:email, language:lang, message:msg, preferredDates:[st.day], to:'levi@higan.studio' }) });
+        var j={}; try { j=await r.json(); } catch(e){}
+        if(r.ok && j.ok){
+          status.className='ok'; status.textContent=L('ok');
+          document.getElementById('bkName').value=''; document.getElementById('bkEmail').value=''; document.getElementById('bkNote').value='';
+          st.day=null; st.time=null; renderCal();
+        } else { status.className='err'; status.textContent=(j && j.error) ? j.error : L('err'); }
+      } catch(e){ status.className='err'; status.textContent=L('err'); }
+      btn.disabled=false; btn.textContent=L('book');
+    }
+
+    function applyI18n(){
+      document.documentElement.lang=lang;
+      document.querySelectorAll('[data-de]').forEach(function(el){ el.textContent=el.getAttribute('data-'+lang); });
+      document.querySelectorAll('[data-de-ph]').forEach(function(el){ el.setAttribute('placeholder', el.getAttribute('data-'+lang+'-ph')); });
+      var tg=document.getElementById('langToggle'); if(tg) tg.textContent = lang==='de'?'EN':'DE';
+      var sb=document.getElementById('bkSubmit'); if(sb) sb.textContent=L('book');
+      var stt=document.getElementById('bkStatus'); if(stt){ stt.textContent=''; stt.className=''; }
+      renderCal();
+    }
+
+    var tg=document.getElementById('langToggle');
+    if(tg) tg.onclick=function(){ lang = lang==='de' ? 'en' : 'de'; applyI18n(); };
+    var sb=document.getElementById('bkSubmit'); if(sb) sb.onclick=submitBooking;
+    applyI18n();
+  })();
   </script>
 </body>
 </html>
