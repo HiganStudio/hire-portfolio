@@ -86,7 +86,7 @@
     </div>
   </header>
 
-  <nav ref="{{ navRef }}" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:39;width:auto;transition:opacity .3s ease;will-change:transform">
+  <nav ref="{{ navRef }}" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%);z-index:39;width:auto;transition:opacity .18s ease;will-change:transform,opacity">
     <div style="display:flex;align-items:stretch;background:#fbfbfc;border-radius:8px;padding:4px;box-shadow:0 14px 40px rgba(0,0,0,.5)" data-hg-light="1">
       <span class="hg-navlink" style="text-align:center;cursor:pointer;color:#17151d;padding:9px 18px;font-size:12.5px;font-weight:500;white-space:nowrap" onClick="{{ navProjects }}">{{ t.projects }}</span>
       <span class="hg-navlink" style="text-align:center;cursor:pointer;color:#17151d;padding:9px 18px;font-size:12.5px;font-weight:500;white-space:nowrap" onClick="{{ navAbout }}">{{ t.about }}</span>
@@ -542,24 +542,15 @@ class Component extends DCLogic {
     const navH=nav.offsetHeight, bottomGap=24;
     const rawShift=Math.max(0,(vh-bottomGap)-(fr.top-16));
     const shift=Math.round(rawShift); // whole pixels only — kills sub-pixel shimmer while docking
-    if(fr.top - 16 <= vh - bottomGap) {
-      nav.style.position = 'absolute';
-      nav.style.bottom = (footer.offsetHeight + 16) + 'px';
-      nav.style.transform = 'translateX(-50%)';
-    } else {
-      nav.style.position = 'fixed';
-      nav.style.bottom = bottomGap + 'px';
-      nav.style.transform = 'translateX(-50%)';
-    }
-    const wasHidden=!!this._navHidden;
-    const hideAt = navH+bottomGap+10, showAt = navH+bottomGap+90; // wide hysteresis band, no flicker at the boundary
-    const hide = wasHidden ? (fr.top < showAt) : (fr.top < hideAt);
-    this._navHidden = hide;
-    if(hide !== wasHidden || this._navHideInit!==true){
-      this._navHideInit=true;
-      nav.style.opacity = hide ? '0' : '1';
-      nav.style.visibility = hide ? 'hidden' : 'visible';
-    }
+    // Never switch positioning modes at the footer boundary.  That switch made the
+    // bar wait before it detached when scrolling back up.  Keeping it fixed and
+    // translating it by the footer overlap gives it one continuous, immediate path.
+    nav.style.position = 'fixed';
+    nav.style.bottom = bottomGap + 'px';
+    nav.style.transform = 'translateX(-50%)' + (shift ? ' translateY(-' + shift + 'px)' : '');
+    const hide = fr.top < navH + bottomGap + 10;
+    nav.style.opacity = hide ? '0' : '1';
+    nav.style.pointerEvents = hide ? 'none' : 'auto';
   }
 
   // Blocks fall on their own timeline once the section is reached. Scroll is gently held
@@ -971,7 +962,7 @@ class Component extends DCLogic {
       +'<p style="margin:0 0 4px;font-size:clamp(11px,1.3vh,12.5px);opacity:.5;font-weight:500">Higan Team</p>'
       +'<h3 style="font-family:\'Cormorant Garamond\',serif;font-weight:600;font-size:clamp(18px,2.6vh,25px);margin:0 0 clamp(10px,2vh,22px)">'+t.discovery+' · 30 min</h3>'
       +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(6px,1.2vh,12px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span aria-hidden="true" style="width:16px;height:16px;border:1.4px solid currentColor;border-radius:50%;flex-shrink:0;position:relative"><i style="position:absolute;left:7px;top:2.5px;width:1.4px;height:4.6px;background:currentColor;transform-origin:bottom"></i><i style="position:absolute;left:7px;top:7.1px;width:3.8px;height:1.4px;background:currentColor;transform-origin:left"></i></span>30 min</div>'
-      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(10px,2vh,22px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><span aria-hidden="true" style="width:18px;height:12px;border:1.4px solid currentColor;border-radius:3px;flex-shrink:0;position:relative"><i style="position:absolute;right:-5px;top:2.5px;width:0;height:0;border-top:3px solid transparent;border-bottom:3px solid transparent;border-left:5px solid currentColor"></i></span>'+t.videoInfo+'</div>'
+      +'<div style="display:flex;align-items:center;gap:10px;margin-bottom:clamp(10px,2vh,22px);font-size:clamp(11.5px,1.4vh,13.5px);opacity:.7"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="3" y="6" width="12" height="12" rx="3"></rect><path d="m15 10 5-3v10l-5-3"></path></svg>'+t.videoInfo+'</div>'
       +'<p style="font-size:clamp(11.5px,1.3vh,13.5px);line-height:1.6;opacity:.6;margin:0 0 clamp(8px,1.6vh,18px)">'+t.bookingIntro+'</p>'
       +'<a href="mailto:contact&#64;higan.studio" style="font-family:\'Cormorant Garamond\',serif;font-size:clamp(15px,2vh,20px);border-bottom:1px solid #7c5aa6;padding-bottom:2px;width:fit-content">contact&#64;higan.studio</a></div>'
       +'<div style="padding:clamp(18px,3vh,36px)">'
