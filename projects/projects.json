@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"id":"higan","name":"Higan Studio","label":"higan studio","headline":"Unser eigenes Studio, neu gedacht","description":"Marke, Web-Entwicklung und Motion Design für unser eigenes Studio — kompromisslos umgesetzt.","site":"higan.studio","accent":"#5a3a86","background":"linear-gradient(160deg,#efe7fb,#ddccf5)","device":"browser","large":false,"screenSlot":"proj-higan-screen"},
+    {"id":"circuit","name":"Circuit","label":"circuit","headline":"Website für eine Band","description":"Design und Fullstack-Entwicklung einer schnellen, eigenständigen Website für die Band Circuit.","site":"circuit.qwqc.de","accent":"#2a2a33","background":"linear-gradient(160deg,#ececef,#dcdce1)","device":"browser","large":true,"screenSlot":"proj-circuit-screen"},
+    {"id":"dockly","name":"Docklys","label":"docklys","headline":"Laptop trifft Smartphone","description":"Konzeption, Design und responsive Entwicklung einer Web-App über Laptop und Mobile.","site":"docklys","accent":"#1b263f","background":"linear-gradient(160deg,#dfeafb,#c7d8f7)","device":"laptop-phone","screenSlot":"proj-dockly-laptop","phoneSlot":"proj-dockly-phone"}
+  ]
+}

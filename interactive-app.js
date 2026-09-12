@@ -399,7 +399,7 @@ class Component extends DCLogic {
       bookingIntro:'Hi! Ich freue mich auf unser Gespräch über dein Projekt. Bis bald!', bookingHead:'Wähle einen Termin',
       selectedWork:'Ausgewählte Arbeiten', projectsCap:'AUSGEWÄHLTE PROJEKTE', viewProjects:'Alle Projekte ansehen',
       tileHiganLabel:'higan studio', tileHiganH:'Unser eigenes Studio, neu gedacht', tileHigan:'Marke, Web-Entwicklung und Motion Design für unser eigenes Studio — kompromisslos umgesetzt.',
-      tileCircuitLabel:'circuit', tileCircuitH:'Automatisierung im großen Stil', tileCircuit:'Plattform-Interface, Design-System und Full-Stack-Entwicklung einer Automatisierungs-Suite.',
+      tileCircuitLabel:'circuit', tileCircuitH:'Website für eine Band', tileCircuit:'Design und Fullstack-Entwicklung einer schnellen, eigenständigen Website für die Band Circuit.',
       tileDocklysLabel:'docklys', tileDocklysH:'Laptop trifft Smartphone', tileDocklys:'Konzeption, Design und responsive Entwicklung einer Web-App über Laptop und Mobile.',
       offerTitle:'Was wir bieten', offerSub:'Fünf Disziplinen, ein System.',
       workflowTitle:'Client Workflow', workflowHead:'Von der Discovery bis zur Skalierung.',
@@ -421,7 +421,7 @@ class Component extends DCLogic {
       bookingIntro:"Hi! I'm looking forward to our chat about your project. See you soon!", bookingHead:'Pick a time',
       selectedWork:'Selected Work', projectsCap:'SELECTED PROJECTS', viewProjects:'View all projects',
       tileHiganLabel:'higan studio', tileHiganH:'Our own studio, reimagined', tileHigan:'Brand, web development and motion design for our own studio — executed without compromise.',
-      tileCircuitLabel:'circuit', tileCircuitH:'Automation at scale', tileCircuit:'Platform interface, design system and full-stack build of an automation suite.',
+      tileCircuitLabel:'circuit', tileCircuitH:'Website for a band', tileCircuit:'Design and fullstack development of a fast, self-contained website for the band Circuit.',
       tileDocklysLabel:'docklys', tileDocklysH:'Laptop meets phone', tileDocklys:'Concept, design and responsive development of a web app across laptop and mobile.',
       offerTitle:'What we offer', offerSub:'Five disciplines, one system.',
       workflowTitle:'Client Workflow', workflowHead:'From discovery to scale.',
@@ -908,7 +908,7 @@ class Component extends DCLogic {
       +'<p style="opacity:.55;font-weight:300;font-size:14px;line-height:1.6;margin:0">'+desc+'</p></div></div>';
     const tilesHTML='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px">'
       +tile(t.tileHiganLabel,t.tileHiganH,'Higan Studio',t.tileHigan,this.browser('proj-higan-screen','higan.studio','#5a3a86'),'linear-gradient(160deg,#efe7fb,#ddccf5)','#5a3a86')
-      +tile(t.tileCircuitLabel,t.tileCircuitH,'Circuit',t.tileCircuit,this.browser('proj-circuit-screen','circuit.io','#2a2a33',true),'linear-gradient(160deg,#ececef,#dcdce1)','#2a2a33')
+      +tile(t.tileCircuitLabel,t.tileCircuitH,'Circuit',t.tileCircuit,this.browser('proj-circuit-screen','circuit.qwqc.de','#2a2a33',true),'linear-gradient(160deg,#ececef,#dcdce1)','#2a2a33')
       +tile(t.tileDocklysLabel,t.tileDocklysH,'Docklys',t.tileDocklys,'<div style="position:relative;width:78%"><div style="width:100%">'+this.laptop('proj-dockly-laptop',false)+'</div><div style="position:absolute;bottom:-14%;right:-22%;width:38%">'+this.phone('proj-dockly-phone',true)+'</div></div>','linear-gradient(160deg,#dfeafb,#c7d8f7)','#1b263f')
       +'</div>';
     // tiles only depend on lang — inject once per (route mount, lang); never on calendar clicks
